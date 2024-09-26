@@ -1,6 +1,6 @@
 from flask import render_template
-from app import app
-from app.forms import NewsletterForm
+from backend import app
+from backend.forms import NewsletterForm
 
 @app.route('/')
 @app.route('/index')

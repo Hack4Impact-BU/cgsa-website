@@ -1,2 +1,8 @@
 .env
 __pychache__
+.venv
+# Ignore all virtual environment folders
+*.env
+*.venv
+env/
+venv/
