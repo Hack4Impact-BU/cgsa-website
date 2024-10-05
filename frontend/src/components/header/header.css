@@ -1,0 +1,67 @@
+.title {
+    font-family: WhitneyBook;
+    font-size: 1.4rem;
+}
+
+b {
+    font-family: WhitneyMedium;
+}
+
+#headbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#fullmenu {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.1rem;
+    font-family: 'Libre Bodoni';
+    border: 0.2rem solid #ded7f5;
+    background-color: #fff;
+}
+
+#fullmenu:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+#fullmenu img {
+    width: 1.8rem;
+}
+
+#navbar {
+    display: flex;
+    justify-content: start;
+    gap: 2rem;
+}
+
+#navbar a {
+    font-family: 'Libre Bodoni';
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+    padding: 0.2rem 0.4rem;
+}
+
+#navbar a:hover {
+    background-color: #ded7f5;
+}
+
+#selected {
+    background-color: #ded7f5;
+}
+
+hr {
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    width: 65%;
+    margin-left: 0;
+    border-color: #ded7f5;
+    border-style: solid;
+}

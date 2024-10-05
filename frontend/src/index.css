@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap');
+
+@font-face {
+    font-family: WhitneyBook;
+    src: url(fonts/whitneybook.ttf);
+}
+
+@font-face {
+    font-family: WhitneyMedium;
+    src: url(fonts/whitneymedium.ttf);
+}
+
+body {
+    margin: 0 2rem;
+}
