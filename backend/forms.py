@@ -1,23 +1,26 @@
 from flask_wtf import FlaskForm
-from wtforms import EmailField, SubmitField, StringField, DateTimeLocalField
-from wtforms.validators import DataRequired
-
-class NewsletterForm(FlaskForm):
-    email = EmailField('Enter Email', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
-class ContactForm(FlaskForm):
-    name = StringField('Your name', validators=[DataRequired()])
-    email = EmailField('Your mail', validators=[DataRequired()])
-    message = StringField('Your Message', validators=[DataRequired()])
+from wtforms import StringField, EmailField, TextAreaField, SubmitField
+from wtforms.validators import DataRequired, Email
 
 class VolunteerForm(FlaskForm):
-    name = StringField('Your name', validators=[DataRequired()])
-    email = EmailField('Your mail', validators=[DataRequired()])
-    message = StringField('Your Message', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired(), Email()])
+    phone = StringField('Phone')
+    submit = SubmitField('Submit')
+
+class NewsletterForm(FlaskForm):
+    email = EmailField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Subscribe')
 
 class BookingForm(FlaskForm):
-    name = StringField('Your name', validators=[DataRequired()])
-    email = EmailField('Your mail', validators=[DataRequired()])
-    date = DateTimeLocalField('Which date is your favorite?', format='%m/%d/%y', validators=[DataRequired()])
-    message = StringField('Your Message', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired(), Email()])
+    date = StringField('Date')
+    time = StringField('Time')
+    submit = SubmitField('Book')
+
+class ContactForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired(), Email()])
+    message = TextAreaField('Message', validators=[DataRequired()])
+    submit = SubmitField('Send')
