@@ -2,8 +2,12 @@ from flask import render_template, Blueprint, request, redirect, url_for, flash
 from models import Contact, Newsletter, Booking, Volunteer
 from app import db
 from forms import ContactForm, NewsletterForm, BookingForm, VolunteerForm
+from flask_mail import Mail, Message
+from app import app
 
 main = Blueprint('main', __name__)
+
+mail = Mail(app)
 
 @main.route('/')
 def index():
@@ -52,3 +56,20 @@ def volunteer():
         flash('Thank you for signing up to volunteer!', 'success')
         return redirect(url_for('main.index'))
     return render_template('volunteer.html', form=form)
+
+#Send automatic emails
+@main.route('/send_email', methods=['POST'])
+def send_email():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+
+        msg = Message(subject='Contact Us Form Submission', 
+                      sender='your_email@example.com', recipients=['receipt@example.com'])
+        
+        msg.body = f"Name: {name}\nEmail: {email} \nMessage: {message}"
+
+        mail.send(msg)
+        flash('Message sent!', 'success')
+        return redirect(url_for('main.index'))
