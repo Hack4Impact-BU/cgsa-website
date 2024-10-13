@@ -24,6 +24,7 @@ b {
     font-family: 'Libre Bodoni';
     border: 0.2rem solid #ded7f5;
     background-color: #fff;
+    transition: background-color 0.5s;
 }
 
 #fullmenu:hover {
@@ -47,6 +48,7 @@ b {
     text-decoration: none;
     color: black;
     padding: 0.2rem 0.4rem;
+    transition: background-color 0.5s;
 }
 
 #navbar a:hover {

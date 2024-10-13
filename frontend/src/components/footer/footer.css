@@ -1,0 +1,58 @@
+#footer {
+    background-color: #ded7f5;
+}
+
+#socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+#socials img {
+    width: 3rem;
+    transition: filter 0.25s;
+}
+
+#socials img:hover {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+#plate {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8rem;
+    padding: 1rem 0;
+}
+
+#title {
+    text-align: center;
+    font-family: WhitneyBook;
+    font-size: 1.2rem;
+}
+
+b {
+    font-family: WhitneyMedium;
+}
+
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+#contact img {
+    width: 2rem;
+}
+
+#contact p {
+    margin-left: -1.5rem;
+    font-size: 1.2rem;
+}
