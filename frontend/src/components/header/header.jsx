@@ -1,15 +1,16 @@
 import React from 'react'
 import './header.css'
 import MagnifyingGlass from '../../assets/Magnifying_glass_icon.svg'
+import XIcon from '../../assets/X_icon.png'
 
 const localLink = window.location.href.substring(window.location.href.lastIndexOf('/'));
 
-function Header() {
+function Header({ visible, sendVisible }) {
     return (
         <>
             <div id='headbar'>
                 <p className='title'><b>Boston University</b> Center for Gender, Sexuality, and Activism</p>
-                <button id='fullmenu'>Full Menu <img src={MagnifyingGlass}/></button>
+                <button id='fullmenu' onClick={sendVisible}>{visible ? "Close Menu" : "Full Menu"} <img src={visible ? XIcon : MagnifyingGlass} style={{marginTop: visible ? '-0.1rem' : 0}}/></button>
             </div>
             <hr/>
             <div id='navbar'>
