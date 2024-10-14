@@ -16,7 +16,7 @@ function Menu({ visible }) {
                     <p><a href='/calendar'>Calendar</a></p>
                     <p><a href='/space-booking'>Space Booking Form</a></p>
                     <p><a href='/contact-us'>Contact Us</a></p>
-                    <p><a href='/volunteer' style={{gridColumn: 3}}>Volunteer Sign-Up</a></p>
+                    <p style={{gridColumn: 3}}><a href='/volunteer'>Volunteer Sign-Up</a></p>
                 </div>
                 <input placeholder="Search site..."/>
             </div>}
