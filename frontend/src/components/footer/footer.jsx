@@ -1,8 +1,6 @@
 import React from 'react'
 import './footer.css'
 import Instagram from '../../assets/instagram.png'
-import Discord from '../../assets/discord.png'
-import Linkedin from '../../assets/linkedin.png'
 import Twitter from '../../assets/twitter.png'
 import BUPlate from '../../assets/BU_Plate.png'
 import Map from '../../assets/map.png'
@@ -15,9 +13,7 @@ function Footer() {
             <div id="footer">
                 <div id="socials">
                     <a href="https://www.instagram.com/bucgsa" target="_blank"><img src={Instagram}/></a>
-                    <img src={Discord}/>
-                    <img src={Linkedin}/>
-                    <img src={Twitter}/>
+                    <a href="https://x.com/bucgsa" target="_blank"><img src={Twitter}/></a>
                 </div>
                 <img src={BUPlate} id="plate"/>
                 <p id='title'><b>Boston University</b> Center for Gender, Sexuality, and Activism</p>
