@@ -26,9 +26,9 @@ function ContactUs() {
                 <div className='infoItem'>
                     <p className='infoText'>Find us on social media on Twitter, Facebook, and Instagram!</p>
                 </div>
-                <button className='contactButton'>
+                <a href="mailto:cgsa@bu.edu"><button className='contactButton'>
                     Click here to contact us!
-                </button>
+                </button></a>
             </div>
         </div>
     );
