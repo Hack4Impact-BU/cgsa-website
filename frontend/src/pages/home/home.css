@@ -1,0 +1,116 @@
+.home_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home_aboutContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    gap: 70px;
+    width: 100%;
+}
+
+.home_aboutHeading {
+    font-size: 72px;
+    font-family: 'Libre Bodoni';
+    margin: 0px;
+}
+
+.home_bigLetter {
+    font-size: 96px;
+}
+
+.home_aboutLeft {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.home_aboutRight {
+    width: 50%;
+}
+
+.home_image {
+    width: 100%;
+}
+
+.home_aboutCard {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(222, 215, 245, 1));
+    padding: 30px;
+    margin-right: 60px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 0 rgba(115, 82, 212, 0.5);
+}
+
+.home_aboutText {
+    font-family: 'Lora';
+    font-size: 20px;
+}
+
+.home_button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Libre Bodoni';
+    font-size: 24px;
+    width: 450px;
+    height: 70px;
+    background-color: white;
+    border: 2px solid #DED7F5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.home_learnButton {
+    height: 70px;
+    width: 210px;
+}
+
+.home_button:hover {
+    background-color: #f1edff;
+    box-shadow: 4px -3px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.home_centerContainer {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    gap: 50px;
+}
+
+.home_centerButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.home_heading {
+    font-size: 36px;
+    font-family: 'Libre Bodoni';
+}
+
+.home_eventsContainer {
+    display: flex;
+    gap: 80px;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.home_event {
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    border-bottom: 6px solid rgba(222, 215, 245, 1);
+    font-family: 'Lora';
+}
