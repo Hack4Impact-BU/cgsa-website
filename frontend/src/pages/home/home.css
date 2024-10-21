@@ -21,6 +21,7 @@
     font-size: 72px;
     font-family: 'Libre Bodoni';
     margin: 0px;
+    color: rgba(115, 82, 212, 0.8);
 }
 
 .home_bigLetter {
@@ -83,7 +84,7 @@
 
 .home_centerContainer {
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     display: flex;
     gap: 50px;
 }
@@ -104,8 +105,8 @@
 .home_eventsContainer {
     display: flex;
     gap: 80px;
-    margin-top: 40px;
-    margin-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 60px;
 }
 
 .home_event {
@@ -113,4 +114,5 @@
     text-align: center;
     border-bottom: 6px solid rgba(222, 215, 245, 1);
     font-family: 'Lora';
+    padding-inline: 20px;
 }

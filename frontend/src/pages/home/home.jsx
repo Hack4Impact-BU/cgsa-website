@@ -2,7 +2,6 @@ import React from 'react';
 import "./home.css";
 import Image1 from '../../assets/about_image1.jpg';
 import CGSA from '../../assets/cgsa.jpg';
-import Event from '../../assets/event.jpg'
 
 function Home() {
 
@@ -30,7 +29,7 @@ function Home() {
                             Our dynamic community fosters challenging and open discourse, promotes student activism,
                             and provides resources and education for the Boston University community.
                         </p>
-                        <button className='home_learnButton home_button'>Learn More!</button>
+                        <a href="/about-us"><button className='home_learnButton home_button'>Learn More!</button></a>
                     </div>
                 </div>
             </div>
@@ -38,8 +37,8 @@ function Home() {
             <div className='home_centerContainer'>
                 <img src={CGSA} className='home_image' />
                 <div className='home_centerButtons'>
-                    <button className='home_button'>Check Events Calendar!</button>
-                    <button className='home_button'>Sign Up for the CGSA Mailing List!</button>
+                    <a href="/calendar"><button className='home_button'>Check Events Calendar!</button></a>
+                    <a href="/newsletter"><button className='home_button'>Sign Up for the CGSA Mailing List!</button></a>
                 </div>
             </div>
 
@@ -48,16 +47,16 @@ function Home() {
             </h1>
             <div className='home_eventsContainer'>
                 <div className='home_event'>
-                    <img className='home_eventImage' src={Event} />
                     <h2>Event Name</h2>
+                    <p>Placeholder text here.</p>
                 </div>
                 <div className='home_event'>
-                    <img className='home_eventImage' src={Event} />
                     <h2>Event Name</h2>
+                    <p>Placeholder text here.</p>
                 </div>
                 <div className='home_event'>
-                    <img className='home_eventImage' src={Event} />
                     <h2>Event Name</h2>
+                    <p>Placeholder text here.</p>
                 </div>
             </div>
 

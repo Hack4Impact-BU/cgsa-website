@@ -78,27 +78,27 @@ function Resources() {
                 </div>
             </div>
 
-            <h1 className='resources_heading'>
+            <h1 className='resources_heading' style={{fontSize: '36px'}}>
                 Other Resources
             </h1>
             <div className='resources_otherContainer'>
                 <div className='resources_otherResource'>
-                    <img className='resources_smallPlaceholder' src={Placeholder} />
+                    <h2>Placeholder</h2>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
                         Magna vulputate pharetra vitae diam morbi netus bibendum.</p>
                 </div>
                 <div className='resources_otherResource'>
-                    <img className='resources_smallPlaceholder' src={Placeholder} />
+                    <h2>Placeholder</h2>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
                         Magna vulputate pharetra vitae diam morbi netus bibendum.</p>
                 </div>
                 <div className='resources_otherResource'>
-                    <img className='resources_smallPlaceholder' src={Placeholder} />
+                    <h2>Placeholder</h2>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
                         Magna vulputate pharetra vitae diam morbi netus bibendum.</p>
                 </div>
                 <div className='resources_otherResource'>
-                    <img className='resources_smallPlaceholder' src={Placeholder} />
+                    <h2>Placeholder</h2>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
                         Magna vulputate pharetra vitae diam morbi netus bibendum.</p>
                 </div>
