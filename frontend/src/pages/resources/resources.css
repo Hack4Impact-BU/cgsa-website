@@ -1,0 +1,65 @@
+.resources_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resources_resourceContainer:first-child {
+    margin-top: 50px;
+}
+
+.resources_resourceContainer {
+    min-width: 650px;
+    max-width: 1175px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0), rgba(222, 215, 245, 0.5)),
+        url('../../assets/resource_bg.jpg');
+    padding: 30px 50px;
+    margin-bottom: 50px;
+    gap: 60px;
+}
+
+.resources_leftContainer {
+    text-align: center;
+    width: 45%;
+}
+
+.resources_rightContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 10px;
+}
+
+.resources_heading {
+    font-size: 24px;
+    font-family: 'Libre Bodoni';
+}
+
+.resources_subheading {
+    font-size: 20px;
+    font-family: 'Libre Bodoni';
+}
+
+.resources_infoText {
+    font-size: 20px;
+    font-family: 'Libre Bodoni 400';
+}
+
+.resources_otherContainer {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.resources_smallPlaceholder {
+    width: 100%;
+}
