@@ -9,8 +9,7 @@ function Resources() {
 
             <div className='resources_resourceContainer'>
                 <div className='resources_leftContainer'>
-                    <h1 className='resources_heading'>GARB</h1>
-                    <h1 className='resources_heading'>The Gender Affiring Room for Belonging</h1>
+                    <h1 className='resources_heading'>GARB: Gender Affiring Room for Belonging</h1>
                     <img src={Placeholder} />
                 </div>
                 <div className='resources_rightContainer'>
