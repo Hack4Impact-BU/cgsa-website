@@ -21,7 +21,7 @@ function Home() {
             else {
                 setCurrentIndex(currentIndex + 1);
             }
-        }, 5000)
+        }, 8000)
 
         return () => clearInterval(intervalId);
     }, [currentIndex]);

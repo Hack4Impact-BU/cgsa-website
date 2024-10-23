@@ -43,7 +43,7 @@
     background-size: cover;
     width: 32rem;
     height: 40rem;
-    transition: background-image 2s;
+    transition: background-image 2.5s ease-in-out;
     margin-left: 1.75rem;
 }
 
