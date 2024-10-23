@@ -9,8 +9,11 @@ function Home() {
         <div className='home_wrapper'>
 
             <div className='home_aboutContainer'>
+
                 <div className='home_aboutLeft'>
+                    <div className='home_topTab'></div>
                     <img src={Image1} className='home_image' />
+                    <div className='home_bottomTab'></div>
                 </div>
                 <div className='home_aboutRight'>
                     <h1 className='home_aboutHeading'>
