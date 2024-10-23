@@ -32,14 +32,19 @@
     justify-content: center;
     align-items: center;
     width: 50%;
+    position: relative;
 }
 
 .home_aboutRight {
     width: 50%;
 }
 
-.home_image {
-    width: 100%;
+.home_imageContainer {
+    background-size: cover;
+    width: 32rem;
+    height: 40rem;
+    transition: background-image 2s;
+    margin-left: 1.75rem;
 }
 
 .home_aboutCard {
@@ -115,4 +120,21 @@
     border-bottom: 6px solid rgba(222, 215, 245, 1);
     font-family: 'Lora';
     padding-inline: 20px;
+}
+
+.home_topTab {
+    background-color: rgba(222, 215, 245, 1);
+    width: 12vw;
+    height: 12px;
+    position: absolute;
+    left: 75%;
+    top: -6px;
+}
+
+.home_bottomTab {
+    background-color: rgba(222, 215, 245, 1);
+    width: 30vw;
+    height: 12px;
+    position: absolute;
+    bottom: 0;
 }

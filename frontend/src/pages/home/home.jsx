@@ -1,16 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./home.css";
-import Image1 from '../../assets/about_image1.jpg';
+import Image1 from '../../assets/about_image1.png';
+import Image2 from '../../assets/about_image2.png';
+import Image3 from '../../assets/about_image3.png';
+import Image4 from '../../assets/about_image4.png';
+import Image5 from '../../assets/about_image5.png';
+import Image6 from '../../assets/about_image6.png';
 import CGSA from '../../assets/cgsa.jpg';
 
 function Home() {
+
+    const images = [Image1, Image2, Image3, Image4, Image5, Image6];
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            if (currentIndex === images.length - 1) {
+                setCurrentIndex(0);
+            }
+            else {
+                setCurrentIndex(currentIndex + 1);
+            }
+        }, 5000)
+
+        return () => clearInterval(intervalId);
+    }, [currentIndex]);
 
     return (
         <div className='home_wrapper'>
 
             <div className='home_aboutContainer'>
+
                 <div className='home_aboutLeft'>
-                    <img src={Image1} className='home_image' />
+                    <div className='home_topTab'></div>
+                    <div className='home_imageContainer'  style={{backgroundImage: `url(${images[currentIndex]}`}}></div>
+                    <div className='home_bottomTab'></div>
                 </div>
                 <div className='home_aboutRight'>
                     <h1 className='home_aboutHeading'>
