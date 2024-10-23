@@ -39,8 +39,12 @@
     width: 50%;
 }
 
-.home_image {
-    width: 100%;
+.home_imageContainer {
+    background-size: cover;
+    width: 32rem;
+    height: 40rem;
+    transition: background-image 2s;
+    margin-left: 1.75rem;
 }
 
 .home_aboutCard {
@@ -120,7 +124,7 @@
 
 .home_topTab {
     background-color: rgba(222, 215, 245, 1);
-    width: 15vw;
+    width: 12vw;
     height: 12px;
     position: absolute;
     left: 75%;
