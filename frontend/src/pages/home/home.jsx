@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./home.css";
 import Image1 from '../../assets/about_image1.jpg';
+import Image2 from '../../assets/about_image2.jpg';
+import Image3 from '../../assets/about_image3.jpg';
 import CGSA from '../../assets/cgsa.jpg';
 
 function Home() {
+
+    const images = [Image1, Image2, Image3];
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            if (currentIndex === images.length - 1) {
+                setCurrentIndex(0);
+            }
+            else {
+                setCurrentIndex(currentIndex + 1);
+            }
+        }, 5000)
+
+        return () => clearInterval(intervalId);
+    }, [currentIndex]);
 
     return (
         <div className='home_wrapper'>
@@ -12,7 +30,7 @@ function Home() {
 
                 <div className='home_aboutLeft'>
                     <div className='home_topTab'></div>
-                    <img src={Image1} className='home_image' />
+                    <img src={images[currentIndex]} className='home_image' />
                     <div className='home_bottomTab'></div>
                 </div>
                 <div className='home_aboutRight'>
