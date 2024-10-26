@@ -3,7 +3,7 @@ from models import Contact, Newsletter, Booking, Volunteer
 from app import db
 from forms import ContactForm, NewsletterForm, BookingForm, VolunteerForm
 from flask_mail import Mail, Message
-from app import app
+import app
 
 main = Blueprint('main', __name__)
 
