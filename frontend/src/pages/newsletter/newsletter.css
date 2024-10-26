@@ -3,7 +3,7 @@
     font-size: 1.2rem;
 }
 
-.questions input {
+.questions input[type='text'] {
     font-family: 'Lora';
     font-size: 1.2rem;
     height: 1.2rem;

@@ -14,3 +14,19 @@
 body {
     margin: 0 2rem;
 }
+
+::selection {
+    background-color: #ded7f5;
+}
+
+a {
+    color: rgba(115, 82, 212, 0.8);
+}
+
+a:hover {
+    color: rgba(115, 82, 212, 0.5);
+}
+
+a:active {
+    color: rgba(115, 82, 212, 0.2);
+}

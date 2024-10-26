@@ -1,0 +1,103 @@
+.form_questions {
+    font-family: 'Lora';
+    font-size: 1.2rem;
+}
+
+.form_questions input, textarea {
+    font-family: 'Lora';
+    font-size: 1.2rem;
+    height: 1.2rem;
+    outline: none;
+    border: 0.1rem solid #ded7f5;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    vertical-align: middle;
+}
+
+.form_questions textarea {
+    min-height: 6rem;
+    max-height: 6rem;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.form_header {
+    font-family: 'Libre Bodoni';
+    font-size: 3rem;
+    text-align: center;
+}
+
+.form_description {
+    font-family: 'Lora';
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80%;
+    margin-inline: auto;
+}
+
+.form_split {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+    column-gap: 5rem;
+    width: 40%;
+    margin: auto;
+}
+
+.form_fullLine {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.form_radio {
+    text-align: center;
+    margin-top: 2.7rem;
+}
+
+.form_radio input[type='radio'] {
+    box-shadow: none;
+    vertical-align: middle;
+    margin-top: -1px;
+    accent-color: rgba(115, 82, 212, 0.8);
+}
+
+.form_radio label {
+    margin-left: 0.2rem;
+    margin-right: 1rem;
+}
+
+.form_center {
+    text-align: center;
+}
+
+.form_note {
+    width: 60%;
+    text-align: center;
+    margin-inline: auto;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: -1rem;
+}
+
+.form_submit {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    height: 60px;
+    width: 250px;
+    font-family: 'Libre Bodoni';
+    font-size: 24px;
+    background-color: white;
+    border: 2px solid #DED7F5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.form_submit:hover {
+    background-color: #ded7f580;
+    box-shadow: 4px -3px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}

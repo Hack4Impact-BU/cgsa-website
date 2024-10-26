@@ -12,6 +12,7 @@ import Calendar from './pages/calendar/calendar';
 import Newsletter from './pages/newsletter/newsletter';
 import SpaceBooking from './pages/space-booking/space-booking';
 import Volunteer from './pages/volunteer/volunteer'
+import './App.css'
 
 function App() {
   const [visible, setVisible] = useState(false);
