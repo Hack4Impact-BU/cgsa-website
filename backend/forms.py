@@ -19,8 +19,3 @@ class BookingForm(FlaskForm):
     time = StringField('Time')
     submit = SubmitField('Book')
 
-class ContactForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = EmailField('Email', validators=[DataRequired(), Email()])
-    message = TextAreaField('Message', validators=[DataRequired()])
-    submit = SubmitField('Send')
