@@ -1,0 +1,51 @@
+.about_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+.about_mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 65%;
+    text-align: justify;
+}
+
+.about_title {
+    font-family: 'Libre Bodoni';
+    font-size: 26px;
+}
+
+.about_description {
+    font-family: 'Libre Bodoni 400';
+    font-size: 20px;
+}
+
+.about_eboardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+}
+
+.about_eboardPicturesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.about_eboardPicture {
+    width: 200px;
+    height: 200px;
+}
