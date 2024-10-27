@@ -3,7 +3,6 @@ import "./resources.css";
 import Placeholder from '../../assets/image_placeholder.jpg';
 
 function Resources() {
-
     return (
         <div className='resources_wrapper'>
 
