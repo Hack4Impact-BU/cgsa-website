@@ -1,12 +1,17 @@
 import './about-us.css';
-import Placeholder from '../../assets/image_placeholder.jpg';
+import Akaash from '../../assets/akaash.png'
+import Jiline from '../../assets/jiline.png'
+import Morgan from '../../assets/morgan.png'
+import Seheni from '../../assets/seheni.jpg'
+import Tania from '../../assets/tania.png'
+import Yihsi from '../../assets/yihsi.png'
 
 function AboutUs() {
     return (
         <div className="about_wrapper">
             <div className="about_mainContainer">
                 <h1 className="about_title">About Us</h1>
-                <p className="about_description">
+                <p className="about_description" style={{marginTop: '-5px'}}>
                     Lorem ipsum odor amet, consectetuer adipiscing elit.
                     Libero massa commodo quisque convallis est montes platea.
                     Tristique suscipit pharetra vitae condimentum nisi ipsum.
@@ -23,27 +28,49 @@ function AboutUs() {
                 </p>
             </div>
             <div className="about_eboardContainer">
-                <h1 className="about_title">Eboard</h1>
+                <h1 className="about_title">E-Board</h1>
                 <div className="about_eboardPicturesWrapper">
                     <div className="about_eboardPictureContainer">
-                        <img src={Placeholder} className="about_eboardPicture" />
-                        <p className="about_description">First Last</p>
+                        <img src={Seheni} className="about_eboardPicture" />
+                        <div className="about_description">
+                            <p>Seheni Kariyawasan (she/her)</p>
+                            <p><i>Director</i></p>
+                        </div>
                     </div>
                     <div className="about_eboardPictureContainer">
-                        <img src={Placeholder} className="about_eboardPicture" />
-                        <p className="about_description">First Last</p>
+                        <img src={Morgan} className="about_eboardPicture" />
+                        <div className="about_description">
+                            <p>Morgan Brennan (she/her)</p>
+                            <p><i>Student Orgs Coordinator</i></p>
+                        </div>
                     </div>
                     <div className="about_eboardPictureContainer">
-                        <img src={Placeholder} className="about_eboardPicture" />
-                        <p className="about_description">First Last</p>
+                        <img src={Jiline} className="about_eboardPicture" />
+                        <div className="about_description">
+                            <p>Jiline Foote (she/they)</p>
+                            <p><i>Social Media Coordinator</i></p>
+                        </div>
                     </div>
                     <div className="about_eboardPictureContainer">
-                        <img src={Placeholder} className="about_eboardPicture" />
-                        <p className="about_description">First Last</p>
+                        <img src={Yihsi} className="about_eboardPicture" />
+                        <div className="about_description">
+                            <p>Yihsi Huang (she/her)</p>
+                            <p><i>Volunteer Coordinator</i></p>
+                        </div>
                     </div>
                     <div className="about_eboardPictureContainer">
-                        <img src={Placeholder} className="about_eboardPicture" />
-                        <p className="about_description">First Last</p>
+                        <img src={Tania} className="about_eboardPicture" />
+                        <div className="about_description">
+                            <p>Tania Torres (she/her)</p>
+                            <p><i>Space Coordinator</i></p>
+                        </div>
+                    </div>
+                    <div className="about_eboardPictureContainer">
+                        <img src={Akaash} className="about_eboardPicture" />
+                        <div className="about_description">
+                            <p>Akaash Khurana (he/him)</p>
+                            <p><i>Treasurer</i></p>
+                        </div>
                     </div>
                 </div>
             </div>
