@@ -1,0 +1,47 @@
+.about_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.about_mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    text-align: justify;
+}
+
+.about_title {
+    font-family: 'Libre Bodoni';
+    font-size: 48px;
+    color: rgba(115, 82, 212, 0.8);
+}
+
+.about_description {
+    font-family: 'Lora';
+    font-size: 20px;
+}
+
+.about_eboardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.about_eboardPicturesWrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 50px;
+    text-align: center;
+}
+
+.about_eboardPicture {
+    width: 200px;
+    height: 200px;
+}
