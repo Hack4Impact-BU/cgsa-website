@@ -5,7 +5,7 @@ import Placeholder from '../../assets/image_placeholder.jpg';
 function Resources() {
     return (
         <div className='resources_wrapper'>
-
+            <h1 class="page_title">Resources</h1>
             <div className='resources_resourceContainer'>
                 <div className='resources_leftContainer'>
                     <h1 className='resources_heading'>GARB: Gender Affirming Room for Belonging</h1>

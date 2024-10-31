@@ -1,3 +1,9 @@
+.page_title {
+    font-family: 'Libre Bodoni';
+    font-size: 48px;
+    color: rgba(115, 82, 212, 0.8);
+}
+
 .form_questions {
     font-family: 'Lora';
     font-size: 1.2rem;

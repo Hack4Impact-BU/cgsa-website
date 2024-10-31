@@ -10,7 +10,7 @@ function AboutUs() {
     return (
         <div className="about_wrapper">
             <div className="about_mainContainer">
-                <h1 className="about_title">About Us</h1>
+                <h1 className="page_title">About Us</h1>
                 <p className="about_description" style={{marginTop: '-5px'}}>
                     Lorem ipsum odor amet, consectetuer adipiscing elit.
                     Libero massa commodo quisque convallis est montes platea.

@@ -15,12 +15,6 @@
     text-align: justify;
 }
 
-.about_title {
-    font-family: 'Libre Bodoni';
-    font-size: 48px;
-    color: rgba(115, 82, 212, 0.8);
-}
-
 .about_description {
     font-family: 'Lora';
     font-size: 20px;
