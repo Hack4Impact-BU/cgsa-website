@@ -10,7 +10,7 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')  # Create an index.html template
 
-@main.route('/api/newsletter', methods=['POST'])
+@main.route('/newsletter', methods=['POST'])
 def newsletter():
     form = NewsletterForm()
     if form.validate_on_submit():
