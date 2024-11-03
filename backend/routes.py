@@ -1,8 +1,8 @@
+from flask import jsonify  # Import jsonify for API responses
 from flask import render_template, Blueprint, request, redirect, url_for, flash
 from models import Newsletter, Booking, Volunteer
 from app import db
 from forms import NewsletterForm, BookingForm, VolunteerForm
-import app
 
 main = Blueprint('main', __name__)
 
@@ -10,16 +10,15 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')  # Create an index.html template
 
-@main.route('/newsletter', methods=['GET', 'POST'])
+@main.route('/api/newsletter', methods=['POST'])
 def newsletter():
     form = NewsletterForm()
-    if request.method == 'POST' and form.validate_on_submit():
+    if form.validate_on_submit():
         newsletter = Newsletter(email=form.email.data)
         db.session.add(newsletter)
         db.session.commit()
-        flash('You have signed up for the newsletter!', 'success')
-        return redirect(url_for('main.index'))
-    return render_template('newsletter.html', form=form)
+        return jsonify({'message': 'You have signed up for the newsletter!'}), 201
+    return jsonify({'error': 'Invalid input'}), 400
 
 @main.route('/booking', methods=['GET', 'POST'])
 def booking():
