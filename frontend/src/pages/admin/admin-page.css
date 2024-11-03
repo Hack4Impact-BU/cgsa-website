@@ -1,0 +1,37 @@
+.admin_wrapper {
+    padding: 20px;
+}
+
+.admin_formGroup {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin_titleInput {
+    font-family: 'Lora';
+    font-size: 1.2rem;
+    height: 1.2rem;
+    outline: none;
+    border: 0.1rem solid #ded7f5;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    margin-top: 1rem;
+}
+
+.quill {
+    font-family: 'Lora';
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #ded7f5;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    vertical-align: middle;
+    min-height: 10rem;
+    margin-top: 1rem;
+}
+
+.ql-container {
+    font-family: 'Lora';
+    font-size: 1rem;
+    min-height: 10rem;
+}
