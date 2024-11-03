@@ -1,8 +1,7 @@
 from flask import render_template, Blueprint, request, redirect, url_for, flash
-from models import Contact, Newsletter, Booking, Volunteer
+from models import Newsletter, Booking, Volunteer
 from app import db
-from forms import ContactForm, NewsletterForm, BookingForm, VolunteerForm
-from flask_mail import Mail, Message
+from forms import NewsletterForm, BookingForm, VolunteerForm
 import app
 
 main = Blueprint('main', __name__)
