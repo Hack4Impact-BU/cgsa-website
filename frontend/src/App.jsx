@@ -12,7 +12,7 @@ import Calendar from './pages/calendar/calendar';
 import Newsletter from './pages/newsletter/newsletter';
 import SpaceBooking from './pages/space-booking/space-booking';
 import Volunteer from './pages/volunteer/volunteer'
-import AdminPage from './pages/admin/admin-page';
+import Admin from './pages/admin/admin';
 import './App.css'
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
         <Route path="/newsletter" element={<Newsletter />} />
         <Route path="/space-booking" element={<SpaceBooking />} />
         <Route path="/volunteer" element={<Volunteer />} />
-        <Route path="/admin-page" element={<AdminPage />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<ErrorBoundary />} />
       </Routes>
       <Footer />

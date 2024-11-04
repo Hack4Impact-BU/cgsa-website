@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "./admin-page.css";
+import "./admin.css";
 
-function AdminPage() {
+function Admin() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -117,4 +117,4 @@ function AdminPage() {
     );
 }
 
-export default AdminPage;
+export default Admin
