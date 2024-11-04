@@ -29,7 +29,7 @@ class BookingForm(FlaskForm):
     primary_contact_name = StringField('Primary Contact Name')
     primary_contact_email = EmailField('Primary Contact Email')
     purpose = StringField('Purpose of Booking')
-    booking_time = StringField('Time of Booking')  # Consider using a DateTimeField for better handling
+    booking_time = StringField('Time of Booking')  
     recurring_days = StringField('Day(s) of Week')
     space_needed = RadioField('Will you need the main space, the library, or both?', choices=[('main', 'Main Space'), ('library', 'Library'), ('both', 'Both')])
     close_space = RadioField('Will you need the space to be closed during your booking?', choices=[('yes', 'Yes'), ('no', 'No')])

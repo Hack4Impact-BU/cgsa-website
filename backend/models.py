@@ -30,7 +30,7 @@ class Booking(db.Model):
     primary_contact_name = db.Column(db.String(100))
     primary_contact_email = db.Column(db.String(100))
     purpose = db.Column(db.String(200))
-    booking_time = db.Column(db.String(100))  # Consider changing to DateTime
+    booking_time = db.Column(db.String(100))  
     recurring_days = db.Column(db.String(100))
     space_needed = db.Column(db.String(10))
     close_space = db.Column(db.String(10))

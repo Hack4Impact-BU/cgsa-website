@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './newsletter.css';
 
 function Newsletter() {
@@ -11,8 +12,9 @@ function Newsletter() {
         event.preventDefault();
         try {
             const response = await axios.post('http://127.0.0.1:5000/api/newsletter', {
+                first_name: firstName,
+                last_name: lastName,
                 email: email,
-                // Include firstName and lastName if needed in the backend
             });
             setMessage(response.data.message);
         } catch (error) {
@@ -23,23 +25,11 @@ function Newsletter() {
     return (
         <div className="form">
             <h1 className='form_header'>Newsletter Sign-Up</h1>
-            <p className="form_description">Placeholder text here.</p>
             <form onSubmit={handleSubmit}>
-                <div className="form_questions">
-                    <div className="form_split">
-                        <p>First Name</p>
-                        <input type='text' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                        <p>Last Name</p>
-                        <input type='text' value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                    </div>
-                    <div className="form_fullLine">
-                        <p>BU Email</p>
-                        <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                </div>
-                <div className='form_center'>
-                    <button type='submit' className='form_submit'>Submit</button>
-                </div>
+                <input type='text' placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+                <input type='text' placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+                <input type='email' placeholder='BU Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <button type='submit'>Submit</button>
             </form>
             {message && <p>{message}</p>}
         </div>
