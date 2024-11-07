@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import './menu.css';
 import Typesense from 'typesense'; // import Typesense
-
-
   
 // Initialize Typesense client
 const client = new Typesense.Client({
   nodes: [
     {
-      host: 'xxx.a1.typesense.net', // replace with your Typesense host
+      host: import.meta.env.VITE_TYPESENSE_HOST, // replace with your Typesense host
       port: 443, // usually 8108
       protocol: 'https', // or 'https' depending on your setup
     }
   ],
-  apiKey: "bqJAVeRpLOzmSDw18bQBLcKCO4mfs1PH", // replace with your Typesense API key
+  apiKey: import.meta.env.VITE_TYPESENSE_API_KEY, // replace with your Typesense API key
   connectionTimeoutSeconds: 2
 });
 
