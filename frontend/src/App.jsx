@@ -12,6 +12,7 @@ import Calendar from './pages/calendar/calendar';
 import Newsletter from './pages/newsletter/newsletter';
 import SpaceBooking from './pages/space-booking/space-booking';
 import Volunteer from './pages/volunteer/volunteer'
+import Admin from './pages/admin/admin';
 import './App.css'
 
 function App() {
@@ -23,8 +24,8 @@ function App() {
     const localLink = window.location.href.substring(window.location.href.lastIndexOf('/'));
     return (
       <>
-        <h1 style={{textAlign: 'center', marginTop: '5rem'}}>Error 404: Page Not Found</h1>
-        <h2 style={{textAlign: 'center', marginBottom: '5rem'}}>The requested URL {localLink} was not found on this server.</h2>
+        <h1 style={{ textAlign: 'center', marginTop: '5rem' }}>Error 404: Page Not Found</h1>
+        <h2 style={{ textAlign: 'center', marginBottom: '5rem' }}>The requested URL {localLink} was not found on this server.</h2>
       </>
     );
   }
@@ -42,6 +43,7 @@ function App() {
         <Route path="/newsletter" element={<Newsletter />} />
         <Route path="/space-booking" element={<SpaceBooking />} />
         <Route path="/volunteer" element={<Volunteer />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<ErrorBoundary />} />
       </Routes>
       <Footer />

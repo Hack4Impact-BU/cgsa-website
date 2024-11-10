@@ -1,0 +1,8 @@
+.blog_post {
+    border-left: solid 3px #ded7f5;
+    padding-left: 1rem;
+}
+
+.blog_post h3 {
+    margin-top: -1rem;
+}
