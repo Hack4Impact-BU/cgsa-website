@@ -49,6 +49,7 @@
     display: flex;
     flex-direction: column; /* Stack search input and results vertically */
     width: 30%; /* Make the search container take the full width of the parent */
+    margin-block: auto;
 }
 
 #search-results {
