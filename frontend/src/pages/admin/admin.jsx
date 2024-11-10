@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { GoogleLogin, GoogleLogout } from "@leecheuk/react-google-login";
 import { gapi } from "gapi-script";
 import "react-quill/dist/quill.snow.css";
 import "./admin.css";
@@ -12,7 +12,7 @@ function Admin() {
     const [userEmail, setUserEmail] = useState("");
 
     const CLIENTID = "350830969073-gu011la3p72geggr365bb41u9itah08d.apps.googleusercontent.com";
-    const allowedEmails = ["sethun@bu.edu, agodel@bu.edu"];
+    const allowedEmails = ["sethun@bu.edu", "agodel@bu.edu"];
 
     const onLoginSuccess = (res) => {
         const email = res.profileObj.email;
@@ -56,6 +56,7 @@ function Admin() {
 
     return (
         <>
+            <h1 className="page_title" style={{marginBottom: "-1rem"}}>Admin</h1>
             {!isAuthenticated ? (
                 <GoogleLogin
                     clientId={CLIENTID}
@@ -64,12 +65,18 @@ function Admin() {
                     onFailure={onFailure}
                     cookiePolicy="single_host_origin"
                     isSignedIn={true}
+                    render={renderProps => (
+                        <button onClick={renderProps.onClick} className="form_submit">Login</button>
+                    )}
                 />
             ) : (
                 <GoogleLogout
                     clientId={CLIENTID}
                     buttonText="Logout"
                     onLogoutSuccess={onLogoutSuccess}
+                    render={renderProps => (
+                        <button onClick={renderProps.onClick} className="form_submit">Logout</button>
+                    )}
                 />
             )}
 
