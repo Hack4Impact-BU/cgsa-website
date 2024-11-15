@@ -88,3 +88,7 @@
 #search-results ul > li:first-child {
     margin-top: -2rem;
 }
+
+#search-results ul > li:last-child {
+    margin-bottom: -1rem;
+}
