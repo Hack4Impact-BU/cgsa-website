@@ -1,46 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './menu.css';
-import Typesense from 'typesense'; // import Typesense
-  
-// Initialize Typesense client
-const client = new Typesense.Client({
-  nodes: [
-    {
-      host: import.meta.env.VITE_TYPESENSE_HOST, // replace with your Typesense host
-      port: 443, // usually 8108
-      protocol: 'https', // or 'https' depending on your setup
-    }
-  ],
-  apiKey: import.meta.env.VITE_TYPESENSE_API_KEY, // replace with your Typesense API key
-  connectionTimeoutSeconds: 2
-});
 
 function Menu({ visible }) {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState([])
+  const [body, setBody] = useState([])
+  const [loading, setLoading] = useState(false)
 
-  const handleSearch = async (e) => {
-    setQuery(e.target.value);
-    
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/text')
+      .then(res => res.json())
+      .then(data => {
+        setBody(data.pages)
+      })
+  }, [])
+
+  function handleSearch(e) {
+    const query = e.target.value
+
     if (!e.target.value.trim()) {
-      setResults([]); // Clear results if the query is empty
-      return;
+      setResults([])
+      return
     }
 
-    setLoading(true);
+    setLoading(true)
 
     try {
-      const response = await client.collections('your_collection_name').documents().search({
-        q: e.target.value, // search term from input field
-        query_by: 'title,description', // replace with fields from your collection
-      });
-      setResults(response.hits); // Set search results
+      let newResults = []
+      body.forEach(obj => {
+        const words = obj.text.split(" ")
+        for (let i = 0; i < words.length; i++) {
+          console.log(words[i],  words[i].includes(query) || query.includes(words[i]))
+          if (words[i].includes(query) || query.includes(words[i]))
+            newResults.push({id: newResults.length, page: obj.name, excerpt: i-2 <= 0 ? words.slice(0, i+3).join(' ')+'...' : i+3 >= words.length ? '...'+words.slice(i-2, words.length).join(' ') : '...'+words.slice(i-2, i+3).join(' ')+'...'})
+        }
+      })
+      setResults(newResults)
     } catch (error) {
-      console.error('Search error:', error);
-      setResults([]);
+      console.error('Search error:', error)
+      setResults([])
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   };
 
@@ -64,18 +63,19 @@ function Menu({ visible }) {
 
           <div id="search-container">
             <input
+              type="text"
               placeholder="Search site..."
-              value={query}
-              onChange={handleSearch} // handle the search input change
+              onChange={(e) => handleSearch(e)}
             />
             {loading && <p>Loading results...</p>}
             {results.length > 0 && (
               <div id="search-results">
                 <ul>
                   {results.map((result) => (
-                    <li key={result.document.id}>
-                      <a href={`/search-result/${result.document.id}`}>
-                        {result.document.title} {/* replace with the relevant field */}
+                    <li key={result.id}>
+                      <a href={`/`}>
+                        <p>{result.page}</p>
+                        <i style={{fontSize: '0.8rem'}}>{result.excerpt}</i>
                       </a>
                     </li>
                   ))}

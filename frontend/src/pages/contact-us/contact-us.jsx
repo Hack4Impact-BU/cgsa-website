@@ -4,7 +4,7 @@ import './contact-us.css';
 function ContactUs() {
     return (
         <>
-            <h1 class="contact_title">Contact Us</h1>
+            <h1 className="contact_title">Contact Us</h1>
             <div className='contact_wrapper'>
                 <div className='contact_contactContainer'>
                     <h1 className='contact_mainText'>There are lots of ways to get in touch with us!</h1>

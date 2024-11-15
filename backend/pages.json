@@ -1,0 +1,36 @@
+{
+    "pages": [
+        {
+            "name": "About Us",
+            "text": "Placeholder"
+        },
+        {
+            "name": "Blog",
+            "text": "Placeholder"
+        },
+        {
+            "name": "Contact Us",
+            "text": "There are lots of ways to get in touch with us! George Sherman Union 775 Commonwealth Ave. Basement Floor Boston, MA 02215 Mailing address: 1 University Way c/o Student Activities Office Boston, MA 02215 Phone: (617) 358-5575 Email: cgsa@bu.edu Find us on social media on Twitter and Instagram! Click here to contact us!"
+        },
+        {
+            "name": "Home",
+            "text": "The Center for Gender, Sexuality and Activism (CGSA) at Boston University strives to be a safe space for people of all genders and sexualities. Using a social justice framework, the CGSA aims to end gender oppression and violence, and advocates for the full equality and inclusion of women, queer and trans students. Our dynamic community fosters challenging and open discourse, promotes student activism, and provides resources and education for the Boston University community."
+        },
+        {
+            "name": "Newsletter Sign-Up",
+            "text": "Placeholder"
+        },
+        {
+            "name": "Resources",
+            "text": "Placeholder"
+        },
+        {
+            "name": "Space Booking Form",
+            "text": "Placeholder"
+        },
+        {
+            "name": "Volunteer Sign-Up",
+            "text": "Placeholder"
+        }
+    ]
+}

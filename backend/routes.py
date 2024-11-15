@@ -2,6 +2,7 @@ from flask import jsonify, Blueprint, request, redirect, url_for, flash
 from models import Newsletter, Booking, Volunteer
 from app import db
 from forms import NewsletterForm, BookingForm, VolunteerForm
+import json
 
 main = Blueprint('main', __name__)
 
@@ -61,3 +62,7 @@ def volunteer():
         db.session.commit()
         return jsonify({'message': 'Thank you for signing up to volunteer!'}), 201
     return jsonify({'error': 'Invalid input'}), 400
+
+@main.route('/text', methods=['GET'])
+def text():
+    return json.load(open('pages.json'))
