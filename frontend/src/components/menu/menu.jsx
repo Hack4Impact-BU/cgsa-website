@@ -4,7 +4,7 @@ import './menu.css';
 function Menu({ visible }) {
   const [results, setResults] = useState([])
   const [body, setBody] = useState([])
-  const links = new Map([['About Us', 'about-us'], ['Blog', 'blog'], ['Contact Us', 'contact-us'], ['Home', 'home'], ['Newsletter Sign-Up', 'newsletter'], ['Resources', 'resources'], ['Space Booking Form', 'space-booking'], ['Volunteer Sign-Up', 'volunteer']])
+  const links = new Map([['About Us', 'about-us'], ['Blog', 'blog'], ['Contact Us', 'contact-us'], ['Home', ''], ['Newsletter Sign-Up', 'newsletter'], ['Resources', 'resources'], ['Space Booking Form', 'space-booking'], ['Volunteer Sign-Up', 'volunteer']])
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/text')
@@ -27,10 +27,21 @@ function Menu({ visible }) {
       body.forEach(obj => {
         const words = obj.text.split(" ")
         for (let i = 0; i < words.length; i++) {
-          if (query.includes(" ") ? query.includes(words[i]) : words[i].includes(query))
+          let addResult = true
+          if (query.includes(" ")) {
+            const queryWords = query.split(" ")
+            for (let j = i; j < i+queryWords.length-1; j++)
+              if (j < words.length && words[j].toLowerCase() != queryWords[j-i].toLowerCase())
+                addResult = false
+            if (i+queryWords.length-1 < words.length && !words[i+queryWords.length-1].includes(queryWords[queryWords.length-1]))
+              addResult = false
+            if (addResult)
+              i += query.split(" ").length-1
+          } else if (!words[i].toLowerCase().includes(query.toLowerCase())) {
+            addResult = false
+          }
+          if (addResult)
             newResults.push({id: newResults.length, page: obj.name, excerpt: i-2 <= 0 ? words.slice(0, i+3).join(' ')+'...' : i+3 >= words.length ? '...'+words.slice(i-2, words.length).join(' ') : '...'+words.slice(i-2, i+3).join(' ')+'...'})
-          if (query.includes(" "))
-            i += query.split(" ").length-1
         }
       })
       setResults(newResults)
@@ -68,17 +79,17 @@ function Menu({ visible }) {
               <div id="search-results">
                 <ul>
                   {results.map((result) => (
-                    <li key={result.id}>
-                      <a href={'/'+links.get(result.page)}>
+                    <a href={'/'+links.get(result.page)} key={result.id}>
+                      <li>
                         <p style={{fontWeight: 'bold'}}>{result.page}</p>
                         <i style={{fontSize: '0.8rem'}}>{result.excerpt}</i>
-                      </a>
-                    </li>
+                      </li>
+                    </a>
                   ))}
                 </ul>
               </div>
             )}
-            {results.length === 0 && <p>No results found</p>}
+            <p style={{opacity: results.length === 0 ? "1" : "0"}}>No results found</p>
           </div>
         </div>
       )}
