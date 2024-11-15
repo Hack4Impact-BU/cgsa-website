@@ -62,6 +62,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for results */
     max-height: 300px; /* Limit the height if there are too many results */
     overflow-y: auto; /* Enable scroll if results overflow */
+    width: 27%;
 }
 
 #search-results ul {

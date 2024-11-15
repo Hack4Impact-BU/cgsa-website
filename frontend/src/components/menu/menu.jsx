@@ -41,7 +41,7 @@ function Menu({ visible }) {
             addResult = false
           }
           if (addResult)
-            newResults.push({id: newResults.length, page: obj.name, excerpt: i-2 <= 0 ? words.slice(0, i+3).join(' ')+'...' : i+3 >= words.length ? '...'+words.slice(i-2, words.length).join(' ') : '...'+words.slice(i-2, i+3).join(' ')+'...'})
+            newResults.push({id: newResults.length, page: obj.name, excerpt: i-3 <= 0 ? words.slice(0, i+4).join(' ')+'...' : i+4 >= words.length ? '...'+words.slice(i-3, words.length).join(' ') : '...'+words.slice(i-3, i+4).join(' ')+'...'})
         }
       })
       setResults(newResults)

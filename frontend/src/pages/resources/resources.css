@@ -56,8 +56,16 @@
     display: flex;
     gap: 50px;
     justify-content: center;
-    align-items: center;
     padding: 20px 50px;
+    width: 80%;
+}
+
+.resources_otherResource {
+    width: 25%;
+}
+
+.resources_otherResource p, .resources_otherResource li {
+    font-size: 1.25rem;
 }
 
 .resources_smallPlaceholder {
