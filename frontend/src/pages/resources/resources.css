@@ -30,6 +30,10 @@
     width: 45%;
 }
 
+.resources_leftContainer img {
+    width: 500px;
+}
+
 .resources_rightContainer {
     display: flex;
     flex-direction: column;

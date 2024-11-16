@@ -1,6 +1,16 @@
+.blog_container {
+    width: 80%;
+    margin-inline: auto;
+}
+
 .blog_post {
     border-left: solid 3px #ded7f5;
     padding-left: 1rem;
+    font-family: 'Lora';
+}
+
+.blog_post h1, .blog_post h3 {
+    font-family: 'Libre Bodoni';
 }
 
 .blog_post h3 {

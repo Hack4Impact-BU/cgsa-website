@@ -1,5 +1,7 @@
 import React from 'react';
 import "./resources.css";
+import GARB from '../../assets/GARB.png'
+import WellnessRoom from '../../assets/WellnessRoom.png'
 import Placeholder from '../../assets/image_placeholder.jpg';
 
 function Resources() {
@@ -9,7 +11,7 @@ function Resources() {
             <div className='resources_resourceContainer'>
                 <div className='resources_leftContainer'>
                     <h1 className='resources_heading'>GARB: Gender Affirming Room for Belonging</h1>
-                    <img src={Placeholder} />
+                    <img src={GARB} />
                 </div>
                 <div className='resources_rightContainer'>
                     <div className='resources_infoContainer'>
@@ -61,7 +63,7 @@ function Resources() {
             <div className='resources_resourceContainer'>
                 <div className='resources_leftContainer'>
                     <h1 className='resources_heading'>Wellness Room</h1>
-                    <img src={Placeholder} />
+                    <img src={WellnessRoom} />
                 </div>
                 <div className='resources_rightContainer'>
                     <div className='resources_infoContainer'>
