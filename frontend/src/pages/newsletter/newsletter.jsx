@@ -20,7 +20,7 @@ function Newsletter() {
         } catch (error) {
             setMessage('Error signing up for newsletter');
         }
-    };
+    }
 
     return (
         <div className="form">

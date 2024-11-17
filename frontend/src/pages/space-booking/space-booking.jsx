@@ -4,34 +4,44 @@ import './space-booking.css';
 
 function SpaceBooking() {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
-        clubOrganization: '',
-        primaryContactName: '',
-        primaryContactEmail: '',
+        club_organization: '',
+        primary_contact_name: '',
+        primary_contact_email: '',
         purpose: '',
-        bookingTime: '',
-        recurringDays: '',
-        spaceNeeded: '',
-        closeSpace: '',
-    });
-    const [message, setMessage] = useState('');
+        booking_time: '',
+        recurring_days: '',
+        space_needed: '',
+        close_space: '',
+    })
+    const [message, setMessage] = useState('')
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevData => ({ ...prevData, [name]: value }));
-    };
+        const { name, value } = e.target
+        setFormData(prevData => ({ ...prevData, [name]: value }))
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:5000/api/booking', formData);
-            setMessage(response.data.message);
+            const response = await axios.post('http://127.0.0.1:5000/api/booking', formData)
+            setMessage(response.data.message)
         } catch (error) {
-            setMessage('Error submitting booking');
+            setMessage('Error submitting booking')
         }
-    };
+    }
+
+    function toggle(toToggle, value) {
+        var element = document.getElementById(toToggle)
+        var radio = document.getElementById(value)
+        if (radio.checked) {
+            element.style.display = 'flex'
+        } else {
+            element.style.display = 'none'
+        }
+    }
 
     return (
         <div className="form">
@@ -46,55 +56,55 @@ function SpaceBooking() {
                     <div className="form_split">
                         <p>First Name</p>
                         <p>Last Name</p>
-                        <input type='text' required />
-                        <input type='text' required />
+                        <input type='text' name='first_name' required />
+                        <input type='text' name='last_name' required />
                     </div>
                     <div className="form_fullLine">
                         <p>BU Email</p>
-                        <input type='text' required />
+                        <input type='text' name='email' required />
                     </div>
                     <div className="form_radio">
                         <p>Are you booking for a club or organization?</p>
-                        <input type='radio' id='bYes' name='club' value='yes' onClick={() => toggle('clubOrg', 'bYes')} required /><label>Yes</label>
-                        <input type='radio' id='bNo' name='club' value='no' onClick={() => toggle('clubOrg', 'bYes')} required /><label>No</label>
+                        <input type='radio' id='bYes' name='cluborg_bool' value='yes' onClick={() => toggle('clubOrg', 'bYes')} required /><label>Yes</label>
+                        <input type='radio' id='bNo' name='cluborg_bool' value='no' onClick={() => toggle('clubOrg', 'bYes')} required /><label>No</label>
                     </div>
                     <div className="form_fullLine" id='clubOrg'>
                         <p>Name of Club or Organization</p>
-                        <input type='text' required />
+                        <input type='text' name='club_organization' />
                     </div>
                     <div className="form_split" style={{ marginTop: '1.5rem' }}>
                         <p>Primary Contact Name</p>
                         <p>Primary Contact Email</p>
-                        <input type='text' required />
-                        <input type='text' required />
+                        <input type='text' name='primary_contact_name' />
+                        <input type='text' name='primary_contact_email' required />
                     </div>
                     <div className="form_fullLine">
                         <p>Purpose of Booking</p>
-                        <input type='text' required />
+                        <input type='text' name='purpose' required />
                     </div>
                     <div className="form_fullLine" style={{ width: '22%' }}>
                         <p>Time of Booking</p>
-                        <input type='datetime-local' min={new Date().toISOString().slice(0, -8)} required />
+                        <input type='datetime-local' name='booking_time' min={new Date().toISOString().slice(0, -8)} required />
                     </div>
                     <div className="form_radio">
                         <p>Is this a recurring event?</p>
-                        <input type='radio' id='wYes' name='recur' value='yes' onClick={() => toggle('recurring', 'wYes')} required /><label>Yes</label>
-                        <input type='radio' id='wNo' name='recur' value='no' onClick={() => toggle('recurring', 'wYes')} required /><label>No</label>
+                        <input type='radio' id='wYes' name='recur_bool' value='yes' onClick={() => toggle('recurring', 'wYes')} required /><label>Yes</label>
+                        <input type='radio' id='wNo' name='recur_bool' value='no' onClick={() => toggle('recurring', 'wYes')} required /><label>No</label>
                     </div>
                     <div className="form_fullLine" id="recurring">
                         <p>Day(s) of Week</p>
-                        <input type='text' required />
+                        <input type='text' name='recurring_days' />
                     </div>
                     <div className="form_radio">
                         <p>Will you need the main space, the library, or both?</p>
-                        <input type='radio' name='space' value='main' required /><label>Main Space</label>
-                        <input type='radio' name='space' value='library' required /><label>Library</label>
-                        <input type='radio' name='space' value='both' required /><label>Both</label>
+                        <input type='radio' name='space_needed' value='main' required /><label>Main Space</label>
+                        <input type='radio' name='space_needed' value='library' required /><label>Library</label>
+                        <input type='radio' name='space_needed' value='both' required /><label>Both</label>
                     </div>
                     <div className="form_radio">
                         <p>Will you need the space to be closed during your booking?</p>
-                        <input type='radio' name='close' value='yes' required /><label>Yes</label>
-                        <input type='radio' name='close' value='no' required /><label>No</label>
+                        <input type='radio' name='close_space' value='yes' required /><label>Yes</label>
+                        <input type='radio' name='close_space' value='no' required /><label>No</label>
                     </div>
                 </div>
                 <div className='form_note'>
@@ -106,7 +116,7 @@ function SpaceBooking() {
                 </div>
             </form>
         </div>
-    );
+    )
 }
 
-export default SpaceBooking;
+export default SpaceBooking
