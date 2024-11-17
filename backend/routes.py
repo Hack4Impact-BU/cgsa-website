@@ -150,3 +150,7 @@ def send_email():
         flash('Failed to send message. Please try again later.', 'danger')
 
     return redirect(url_for('main.index'))
+
+@main.route('/text', methods=['GET'])
+def text():
+    return json.load(open('pages.json'))

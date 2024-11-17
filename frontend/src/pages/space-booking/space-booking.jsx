@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './space-booking.css';
 
+
 function toggle(toToggle, value) {
     const element = document.getElementById(toToggle);
     const radio = document.getElementById(value);
@@ -10,7 +11,7 @@ function toggle(toToggle, value) {
     } else {
         element.style.display = 'none';
     }
-}
+
 
 function SpaceBooking() {
     const [formData, setFormData] = useState({

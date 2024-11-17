@@ -35,8 +35,7 @@ class Booking(db.Model):
     space_needed = db.Column(db.String(10))
     close_space = db.Column(db.String(10))
 
-class Contact(db.Model):
+class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=False)
-    message = db.Column(db.Text, nullable=False)
+    title = db.Column(db.String(100))
+    blog_post = db.Column(db.String(300))

@@ -1,15 +1,17 @@
 import React from 'react';
 import "./resources.css";
+import GARB from '../../assets/GARB.png'
+import WellnessRoom from '../../assets/WellnessRoom.png'
 import Placeholder from '../../assets/image_placeholder.jpg';
 
 function Resources() {
     return (
         <div className='resources_wrapper'>
-            <h1 class="page_title">Resources</h1>
+            <h1 className="page_title">Resources</h1>
             <div className='resources_resourceContainer'>
                 <div className='resources_leftContainer'>
                     <h1 className='resources_heading'>GARB: Gender Affirming Room for Belonging</h1>
-                    <img src={Placeholder} />
+                    <img src={GARB} />
                 </div>
                 <div className='resources_rightContainer'>
                     <div className='resources_infoContainer'>
@@ -51,27 +53,23 @@ function Resources() {
                 </div>
                 <div className='resources_rightContainer'>
                     <div className='resources_infoContainer'>
-                        <h2 className='resources_subheading'>Subheading</h2>
-                        <p className='resources_infoText'>
-                            Lorem ipsum odor amet, consectetuer adipiscing elit.
-                            Magna vulputate pharetra vitae diam morbi netus bibendum.
-                        </p>
+                        <h2 className='resources_subheading'>
+                        The CGSA’s very own library collection. Currently installing a checkout system.
+                        </h2>
                     </div>
                 </div>
             </div>
 
             <div className='resources_resourceContainer'>
                 <div className='resources_leftContainer'>
-                    <h1 className='resources_heading'>Sensory Room</h1>
-                    <img src={Placeholder} />
+                    <h1 className='resources_heading'>Wellness Room</h1>
+                    <img src={WellnessRoom} />
                 </div>
                 <div className='resources_rightContainer'>
                     <div className='resources_infoContainer'>
-                        <h2 className='resources_subheading'>Subheading</h2>
-                        <p className='resources_infoText'>
-                            Lorem ipsum odor amet, consectetuer adipiscing elit.
-                            Magna vulputate pharetra vitae diam morbi netus bibendum.
-                        </p>
+                        <h2 className='resources_subheading'>
+                        Destress and unplug in our wellness room. Take a nap, watch a movie, and get centered. 
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -81,24 +79,32 @@ function Resources() {
             </h1>
             <div className='resources_otherContainer'>
                 <div className='resources_otherResource'>
-                    <h2>Placeholder</h2>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
-                        Magna vulputate pharetra vitae diam morbi netus bibendum.</p>
+                    <h2>Menstrual Products</h2>
+                    <ul>
+                        <li>Tampons</li>
+                        <li>Pads</li>
+                    </ul>
                 </div>
                 <div className='resources_otherResource'>
-                    <h2>Placeholder</h2>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
-                        Magna vulputate pharetra vitae diam morbi netus bibendum.</p>
+                    <h2>Safe Sex Supplies</h2>
+                    <ul>
+                        <li>Condoms</li>
+                        <li>Internal Condoms</li>
+                        <li>Lube Packets</li>
+                        <li>Dental Dams</li>
+                    </ul>
                 </div>
                 <div className='resources_otherResource'>
-                    <h2>Placeholder</h2>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
-                        Magna vulputate pharetra vitae diam morbi netus bibendum.</p>
+                    <h2>Hygiene Products</h2>
+                    <ul>
+                        <li>Travel-Size</li>
+                    </ul>
                 </div>
                 <div className='resources_otherResource'>
-                    <h2>Placeholder</h2>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
-                        Magna vulputate pharetra vitae diam morbi netus bibendum.</p>
+                    <h2>Snacks</h2>
+                    <ul>
+                        <li>Kept in kitchen cabinet</li>
+                    </ul>
                 </div>
             </div>
 
