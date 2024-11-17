@@ -1,6 +1,6 @@
 import sqlite3
 
-tables = ['booking', 'contact', 'newsletter', 'volunteer']  # list of table names
+tables = ['booking', 'newsletter', 'volunteer']  # list of table names
 
 with sqlite3.connect('instance/site.db') as conn:
     c = conn.cursor()

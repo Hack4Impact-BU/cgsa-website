@@ -124,10 +124,10 @@
 
 .home_topTab {
     background-color: rgba(222, 215, 245, 1);
-    width: 200px;
+    width: 12vw;
     height: 12px;
     position: absolute;
-    margin-left: 400px;
+    margin-left: 26rem;
     top: -6px;
 }
 
