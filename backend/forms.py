@@ -34,3 +34,8 @@ class BookingForm(FlaskForm):
     space_needed = RadioField('Will you need the main space, the library, or both?', choices=[('main', 'Main Space'), ('library', 'Library'), ('both', 'Both')])
     close_space = RadioField('Will you need the space to be closed during your booking?', choices=[('yes', 'Yes'), ('no', 'No')])
     submit = SubmitField('Book')
+
+class AdminForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    blog_post = StringField('Write your blog post here...', validators=[DataRequired()])
+    submit = SubmitField('Submit')
