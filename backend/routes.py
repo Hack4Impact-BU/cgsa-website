@@ -8,7 +8,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return render_template('index.html')  # Create an index.html template
+    return 'CGSA Backend'
 
 @main.route('/api/newsletter', methods=['POST'])
 def newsletter():
