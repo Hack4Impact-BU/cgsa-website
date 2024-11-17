@@ -106,10 +106,10 @@ function Volunteer() {
                         </div>
                     </div>
                     <div className='form_center'>
-                        <button className='form_submit' type='submit'>Submit</button>
+                        <button className='form_submit' type='submit'>Submit</button><br />
+                        {message && <strong><i className='form_note'>{message}</i></strong>}
                     </div>
                 </form>
-                {message && <p className="form_message">{message}</p>}
             </div>
         </>
     );

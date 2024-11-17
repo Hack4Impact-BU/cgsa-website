@@ -15,7 +15,7 @@ def create_app():
     db.init_app(app)
     mail.init_app(app)
 
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
+    CORS(app, resources={r"/*": {"origins": "*"}})
 
     with app.app_context():
         db.create_all()  # Create database tables

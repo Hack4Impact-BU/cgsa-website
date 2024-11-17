@@ -1,7 +1,8 @@
 from flask import render_template, Blueprint, request, redirect, url_for, flash, jsonify, current_app
-from models import Contact, Newsletter, Booking, Volunteer
+from models import Newsletter, Booking, Volunteer
 from app import db
 from flask_mail import Mail, Message
+import json
 
 main = Blueprint('main', __name__)
 
@@ -13,27 +14,10 @@ def index():
     return render_template('index.html')
 
 
-@main.route('/contact', methods=['GET', 'POST'])
-def contact():
-    form = ContactForm()
-    if request.method == 'POST' and form.validate_on_submit():
-        contact = Contact(name=form.name.data, email=form.email.data, message=form.message.data)
-        try:
-            db.session.add(contact)
-            db.session.commit()
-            flash('Your message has been sent!', 'success')
-        except Exception as e:
-            db.session.rollback()
-            current_app.logger.error(f"Database Error: {e}")
-            flash('Failed to send message. Please try again later.', 'danger')
-        return redirect(url_for('main.index'))
-    return render_template('contact.html', form=form)
-
-
 @main.route('/api/newsletter', methods=['POST'])
 def newsletter():
     data = request.json  # Parse incoming JSON
-    if not data or not all(key in data for key in ('email')):
+    if not data or not all(key in data for key in ('first_name', 'last_name', 'email')):
         return jsonify({'error': 'Invalid input'}), 400
 
     try:
