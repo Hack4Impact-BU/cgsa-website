@@ -36,6 +36,11 @@ function SpaceBooking() {
     return (
         <div className="form">
             <h1 className="form_header">Space Booking Form</h1>
+            <div className="form_description">
+                <p style={{ fontSize: '1.5rem' }}>Book the space for a meeting or event!</p>
+                <p>For club meetings, priority will be given to those wishing to keep their old meeting times. Other booking conflicts will be resolved based on the form we received first.</p>
+                <p>We will email your booking confirmation to your primary contact. If you have any questions, feel free to <a href='/contact-us'>contact us</a>.</p>
+            </div>
             <form onChange={handleChange} onSubmit={handleSubmit}>
                 <div className="form_questions">
                     <div className="form_split">
@@ -96,7 +101,7 @@ function SpaceBooking() {
                     <i>Remember to tidy the space after each event or meeting.</i>
                 </div>
                 <div className='form_center'>
-                    <button type='submit' className='form_submit'>Submit</button><br/>
+                    <button type='submit' className='form_submit'>Submit</button><br />
                     {message && <strong><i className='form_note'>{message}</i></strong>}
                 </div>
             </form>
