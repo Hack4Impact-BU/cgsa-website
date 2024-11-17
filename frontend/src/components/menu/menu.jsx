@@ -1,46 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './menu.css';
-import Typesense from 'typesense'; // import Typesense
-  
-// Initialize Typesense client
-const client = new Typesense.Client({
-  nodes: [
-    {
-      host: import.meta.env.VITE_TYPESENSE_HOST, // replace with your Typesense host
-      port: 443, // usually 8108
-      protocol: 'https', // or 'https' depending on your setup
-    }
-  ],
-  apiKey: import.meta.env.VITE_TYPESENSE_API_KEY, // replace with your Typesense API key
-  connectionTimeoutSeconds: 2
-});
 
 function Menu({ visible }) {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState([])
+  const [body, setBody] = useState([])
+  const links = new Map([['About Us', 'about-us'], ['Blog', 'blog'], ['Contact Us', 'contact-us'], ['Home', ''], ['Newsletter Sign-Up', 'newsletter'], ['Resources', 'resources'], ['Space Booking Form', 'space-booking'], ['Volunteer Sign-Up', 'volunteer']])
 
-  const handleSearch = async (e) => {
-    setQuery(e.target.value);
-    
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/text')
+      .then(res => res.json())
+      .then(data => {
+        setBody(data.pages)
+      })
+  }, [])
+
+  function handleSearch(e) {
+    const query = e.target.value.trim()
+
     if (!e.target.value.trim()) {
-      setResults([]); // Clear results if the query is empty
-      return;
+      setResults([])
+      return
     }
 
-    setLoading(true);
-
     try {
-      const response = await client.collections('your_collection_name').documents().search({
-        q: e.target.value, // search term from input field
-        query_by: 'title,description', // replace with fields from your collection
-      });
-      setResults(response.hits); // Set search results
+      let newResults = []
+      body.forEach(obj => {
+        const words = obj.text.split(" ")
+        for (let i = 0; i < words.length; i++) {
+          let addResult = true
+          if (query.includes(" ")) {
+            const queryWords = query.split(" ")
+            for (let j = i; j < i+queryWords.length-1; j++)
+              if (j < words.length && words[j].toLowerCase() != queryWords[j-i].toLowerCase())
+                addResult = false
+            if (i+queryWords.length-1 < words.length && !words[i+queryWords.length-1].includes(queryWords[queryWords.length-1]))
+              addResult = false
+            if (addResult)
+              i += query.split(" ").length-1
+          } else if (!words[i].toLowerCase().includes(query.toLowerCase())) {
+            addResult = false
+          }
+          if (addResult)
+            newResults.push({id: newResults.length, page: obj.name, excerpt: i-3 <= 0 ? words.slice(0, i+4).join(' ')+'...' : i+4 >= words.length ? '...'+words.slice(i-3, words.length).join(' ') : '...'+words.slice(i-3, i+4).join(' ')+'...'})
+        }
+      })
+      setResults(newResults)
     } catch (error) {
-      console.error('Search error:', error);
-      setResults([]);
-    } finally {
-      setLoading(false);
+      console.error('Search error:', error)
+      setResults([])
     }
   };
 
@@ -64,25 +71,25 @@ function Menu({ visible }) {
 
           <div id="search-container">
             <input
+              type="text"
               placeholder="Search site..."
-              value={query}
-              onChange={handleSearch} // handle the search input change
+              onChange={(e) => handleSearch(e)}
             />
-            {loading && <p>Loading results...</p>}
             {results.length > 0 && (
               <div id="search-results">
                 <ul>
                   {results.map((result) => (
-                    <li key={result.document.id}>
-                      <a href={`/search-result/${result.document.id}`}>
-                        {result.document.title} {/* replace with the relevant field */}
-                      </a>
-                    </li>
+                    <a href={'/'+links.get(result.page)} key={result.id}>
+                      <li>
+                        <p style={{fontWeight: 'bold'}}>{result.page}</p>
+                        <i style={{fontSize: '0.8rem'}}>{result.excerpt}</i>
+                      </li>
+                    </a>
                   ))}
                 </ul>
               </div>
             )}
-            {results.length === 0 && !loading && <p>No results found</p>}
+            <p style={{opacity: results.length === 0 ? "1" : "0"}}>No results found</p>
           </div>
         </div>
       )}

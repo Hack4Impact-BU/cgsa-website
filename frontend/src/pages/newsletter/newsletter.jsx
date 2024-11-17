@@ -25,13 +25,25 @@ function Newsletter() {
     return (
         <div className="form">
             <h1 className='form_header'>Newsletter Sign-Up</h1>
+            <p className="form_description">Placeholder text here.</p>
             <form onSubmit={handleSubmit}>
-                <input type='text' placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
-                <input type='text' placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
-                <input type='email' placeholder='BU Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <button type='submit'>Submit</button>
+                <div className="form_questions">
+                    <div className="form_split">
+                        <p>First Name</p>
+                        <p>Last Name</p>
+                        <input type='text' required />
+                        <input type='text' required />
+                    </div>
+                    <div className="form_fullLine">
+                        <p>BU Email</p>
+                        <input type='text' required />
+                    </div>
+                </div>
+                <div className='form_center'>
+                    <button type='submit' className='form_submit'>Submit</button><br/>
+                    {message && <strong><i className='form_note'>{message}</i></strong>}
+                </div>
             </form>
-            {message && <p>{message}</p>}
         </div>
     );
 }
