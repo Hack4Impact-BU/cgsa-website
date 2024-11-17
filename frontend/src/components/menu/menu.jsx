@@ -89,7 +89,7 @@ function Menu({ visible }) {
                 </ul>
               </div>
             )}
-            <p style={{opacity: results.length === 0 ? "1" : "0"}}>No results found</p>
+            <p id="search-text" style={{opacity: results.length === 0 ? "1" : "0"}}>No results found</p>
           </div>
         </div>
       )}

@@ -57,7 +57,6 @@
     margin-top: 3rem; /* Space between input and results */
     background-color: #fff; /* Slight background for the results */
     padding-inline: 1rem;
-    padding-bottom: 0.5rem;
     line-height: 0.6rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for results */
     max-height: 300px; /* Limit the height if there are too many results */
@@ -94,4 +93,8 @@
 #search-container i {
     position: relative;
     bottom: 0.4rem;
+}
+
+#search-text {
+    font-family: 'Lora';
 }
