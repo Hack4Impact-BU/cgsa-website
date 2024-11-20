@@ -1,2 +1,3 @@
 # Local Netlify folder
 .netlify
+/__pycache__
