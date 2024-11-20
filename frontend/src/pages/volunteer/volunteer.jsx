@@ -2,53 +2,55 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function Volunteer() {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        pronouns: '',
-        graduationYear: '',
-        phone: '',
-        helpEvents: '',
-        helpLibrary: '',
-        safeSpace: '',
-        questions: ''
-    });
-    const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    pronouns: '',
+    graduationYear: '',
+    phone: '',
+    helpEvents: '',
+    helpLibrary: '',
+    safeSpace: '',
+    questions: '',
+  });
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState(null);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevData => ({ ...prevData, [name]: value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Transform data to match backend field names
+    const transformedData = {
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      email: formData.email,
+      pronouns: formData.pronouns,
+      graduation_year: formData.graduationYear,
+      phone: formData.phone,
+      help_events: formData.helpEvents,
+      help_library: formData.helpLibrary,
+      safe_space: formData.safeSpace,
+      questions: formData.questions,
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    console.log('Transformed Data being sent:', transformedData);
 
-        // Transform data to match backend field names
-        const transformedData = {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            email: formData.email,
-            pronouns: formData.pronouns,
-            graduation_year: formData.graduationYear,
-            phone: formData.phone,
-            help_events: formData.helpEvents,
-            help_library: formData.helpLibrary,
-            safe_space: formData.safeSpace,
-            questions: formData.questions,
-        };
-
-        console.log("Transformed Data being sent:", transformedData);
-
-        try {
-            const response = await axios.post('http://127.0.0.1:5000/api/volunteer', transformedData);
-            setMessage(response.data.message);
-        } catch (error) {
-            console.error("Error:", error.response ? error.response.data : error.message);
-            setMessage('Error signing up to volunteer: ' + (error.response ? error.response.data.error : error.message));
-        }
-    };
-
+    try {
+      const response = await axios.post('http://localhost:5001/volunteers', transformedData);
+      setMessage(response.data.message);
+      setError(null);
+    } catch (error) {
+      console.error('Error:', error.response ? error.response.data : error.message);
+      setMessage(null);
+      setError('Error signing up to volunteer: ' + (error.response ? error.response.data.error : error.message));
+    }
+  };
 
     return (
         <>

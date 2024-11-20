@@ -25,6 +25,32 @@ app.post('/newsletter', (req, res) => {
     res.json(doc);
 });
 
+app.post('/volunteers', (req, res) => {
+    const { first_name, last_name, email, pronouns, graduation_year, phone, help_events, help_library, safe_space, questions } = req.body;
+    const doc = { first_name, last_name, email, pronouns, graduation_year, phone, help_events, help_library, safe_space, questions };
+
+    const myDB = client.db('cgsa_db');
+    const myColl = myDB.collection('volunteers');
+    
+    const result = myColl.insertOne(doc);
+
+    res.json(doc);
+});
+
+app.post('/bookings', (req, res) => {
+    const { first_name, last_name, email, clubOrganization, primaryContactName, primaryContactEmail, purpose, bookingTime, recurringDays, spaceNeeded, closeSpace } = req.body;
+    const doc = { first_name, last_name, email, clubOrganization, primaryContactName, primaryContactEmail, purpose, bookingTime, recurringDays, spaceNeeded, closeSpace  };
+
+    const myDB = client.db('cgsa_db');
+    const myColl = myDB.collection('bookings');
+    
+    const result = myColl.insertOne(doc);
+
+    res.json(doc);
+});
+
+
+
 app.listen(5001, () => {
     console.log('Server listening on port 5001');
   });

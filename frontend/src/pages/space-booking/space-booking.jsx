@@ -2,66 +2,67 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './space-booking.css';
 
-
 function toggle(toToggle, value) {
-    const element = document.getElementById(toToggle);
-    const radio = document.getElementById(value);
-    if (radio.checked) {
-        element.style.display = 'flex';
-    } else {
-        element.style.display = 'none';
-    }
+  const element = document.getElementById(toToggle);
+  const radio = document.getElementById(value);
+  if (radio.checked) {
+    element.style.display = 'flex';
+  } else {
+    element.style.display = 'none';
+  }
 }
 
 function SpaceBooking() {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        clubOrganization: '',
-        primaryContactName: '',
-        primaryContactEmail: '',
-        purpose: '',
-        bookingTime: '',
-        recurringDays: '',
-        spaceNeeded: '',
-        closeSpace: '',
-    });
-    const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    clubOrganization: '',
+    primaryContactName: '',
+    primaryContactEmail: '',
+    purpose: '',
+    bookingTime: '',
+    recurringDays: '',
+    spaceNeeded: '',
+    closeSpace: '',
+  });
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState(null);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const transformedData = {
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      email: formData.email,
+      club_organization: formData.clubOrganization,
+      primary_contact_name: formData.primaryContactName,
+      primary_contact_email: formData.primaryContactEmail,
+      purpose: formData.purpose,
+      booking_time: formData.bookingTime,
+      recurring_days: formData.recurringDays,
+      space_needed: formData.spaceNeeded,
+      close_space: formData.closeSpace,
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    console.log('Submitting transformed data:', transformedData);
 
-        // Transform field names to match the backend's expectations
-        const transformedData = {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            email: formData.email,
-            club_organization: formData.clubOrganization,
-            primary_contact_name: formData.primaryContactName,
-            primary_contact_email: formData.primaryContactEmail,
-            purpose: formData.purpose,
-            booking_time: formData.bookingTime,
-            recurring_days: formData.recurringDays,
-            space_needed: formData.spaceNeeded,
-            close_space: formData.closeSpace,
-        };
-
-        console.log("Submitting transformed data:", transformedData);
-
-        try {
-            const response = await axios.post('http://127.0.0.1:5000/api/booking', transformedData);
-            setMessage(response.data.message);
-        } catch (error) {
-            console.error("Error:", error.response ? error.response.data : error.message);
-            setMessage('Error submitting booking: ' + error.message);
-        }
-    };
+    try {
+      const response = await axios.post('http://localhost:5001/bookings', transformedData);
+      setMessage(response.data.message);
+      setError(null);
+    } catch (error) {
+      console.error('Error:', error.response ? error.response.data : error.message);
+      setMessage(null);
+      setError('Error submitting booking: ' + (error.response ? error.response.data.error : error.message));
+    }
+  };
 
     return (
         <div className="form">
