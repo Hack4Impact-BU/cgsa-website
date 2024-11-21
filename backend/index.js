@@ -1,56 +1,80 @@
-const { MongoClient } = require("mongodb");
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import express from 'express'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
+import { MongoClient } from 'mongodb'
+import { readFileSync } from 'fs'
 
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-const port = 5001;
+dotenv.config()
 
-// mognodb atlas connection string
-const uri = "mongodb+srv://mbattal:9bQ4Sb48v6xehG3C@cluster0.efjoi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const app = express()
+app.use(cors())
+app.use(bodyParser.json())
 
-const client = new MongoClient(uri);
+const PORT = process.env.port || 4000;
 
-app.post('/newsletter', (req, res) => {
-    const { first_name, last_name, email } = req.body;
-    const doc = { first_name, last_name, email };
+const mongourl = process.env.MONGO_URL
+const mongoclient = new MongoClient(mongourl, {})
 
-    const myDB = client.db('cgsa_db');
-    const myColl = myDB.collection('newsletters');
-    
-    const result = myColl.insertOne(doc);
+mongoclient.connect().then(() => {
+    console.log("Connected to MongoDB")
+})
 
-    res.json(doc);
-});
+app.post('/newsletter', async (req, res) => {
+    try {
+        const doc = req.body
+        if (!doc.first_name || !doc.last_name || !doc.email || Object.keys(log).length !== 3) {
+            res.status(400).json({ message: 'Bad Request' })
+            return
+        }
+        await mongoclient.db('cgsa_db').collection('newsletters').insertOne(doc)
+        res.status(201).json({ message: 'Success' })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Error' })
+    }
+})
 
-app.post('/volunteers', (req, res) => {
-    const { first_name, last_name, email, pronouns, graduation_year, phone, help_events, help_library, safe_space, questions } = req.body;
-    const doc = { first_name, last_name, email, pronouns, graduation_year, phone, help_events, help_library, safe_space, questions };
+app.post('/volunteers', async (req, res) => {
+    try {
+        const doc = req.body
+        if (!doc.first_name || !doc.last_name || !doc.email || !doc.pronouns || !doc.graduation_year || !doc.phone || !doc.help_events || !doc.help_library || !doc.safe_space || !doc.questions || Object.keys(log).length !== 10) {
+            res.status(400).json({ message: 'Bad Request' })
+            return
+        }
+        await mongoclient.db('cgsa_db').collection('volunteers').insertOne(doc)
+        res.status(201).json({ message: 'Success' })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Error' })
+    }
+})
 
-    const myDB = client.db('cgsa_db');
-    const myColl = myDB.collection('volunteers');
-    
-    const result = myColl.insertOne(doc);
+app.post('/bookings', async (req, res) => {
+    try {
+        const doc = req.body
+        if (!doc.first_name || !doc.last_name || !doc.email || !doc.primaryContactName || !doc.primaryContactEmail || !doc.purpose || !doc.bookingTime || !doc.spaceNeeded || !doc.closeSpace || Object.keys(log).length < 9 || Object.keys(log).length > 11) {
+            res.status(400).json({ message: 'Bad Request' })
+            return
+        }
+        await mongoclient.db('cgsa_db').collection('bookings').insertOne(doc)
+        res.status(201).json({ message: 'Success' })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Error' })
+    }
+})
 
-    res.json(doc);
-});
+app.get('/text', (req, res) => {
+    try {
+        const data = readFileSync('./pages.json')
+        res.status(200).json(JSON.parse(data))
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Error' })
+    }
+})
 
-app.post('/bookings', (req, res) => {
-    const { first_name, last_name, email, clubOrganization, primaryContactName, primaryContactEmail, purpose, bookingTime, recurringDays, spaceNeeded, closeSpace } = req.body;
-    const doc = { first_name, last_name, email, clubOrganization, primaryContactName, primaryContactEmail, purpose, bookingTime, recurringDays, spaceNeeded, closeSpace  };
-
-    const myDB = client.db('cgsa_db');
-    const myColl = myDB.collection('bookings');
-    
-    const result = myColl.insertOne(doc);
-
-    res.json(doc);
-});
-
-
-
-app.listen(5001, () => {
-    console.log('Server listening on port 5001');
-  });
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+})
