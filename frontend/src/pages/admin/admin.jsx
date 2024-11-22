@@ -10,9 +10,12 @@ function Admin() {
     const [content, setContent] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userEmail, setUserEmail] = useState("");
+    const [newsletterData, setNewsletterData] = useState([]);
+    const [bookingData, setBookingData] = useState([]);
+    const [volunteerData, setVolunteerData] = useState([]);
 
     const CLIENTID = "350830969073-gu011la3p72geggr365bb41u9itah08d.apps.googleusercontent.com";
-    const allowedEmails = ["sethun@bu.edu", "agodel@bu.edu"];
+    const allowedEmails = ["sethun@bu.edu", "agodel@bu.edu", "mebattll@gmail.com", "zbattal@bu.edu"];
 
     const onLoginSuccess = (res) => {
         const email = res.profileObj.email;
@@ -53,6 +56,42 @@ function Admin() {
             ["image"],
         ],
     };
+
+    useEffect(() => {
+        const fetchNewsletters = async () => {
+            try {
+                const response = await fetch("http://localhost:5001/newsletters");
+                const data = await response.json();
+                setNewsletterData(data);
+            } catch (error) {
+                console.error("Error fetching newsletters:", error);
+            }
+        };
+
+        const fetchBookings = async () => {
+            try {
+                const response = await fetch("http://localhost:5001/bookings");
+                const data = await response.json();
+                setBookingData(data);
+            } catch (error) {
+                console.error("Error fetching bookings:", error);
+            }
+        };
+
+        const fetchVolunteers = async () => {
+            try {
+                const response = await fetch("http://localhost:5001/volunteers");
+                const data = await response.json();
+                setVolunteerData(data);
+            } catch (error) {
+                console.error("Error fetching volunteers:", error);
+            }
+        };
+
+        fetchNewsletters();
+        fetchBookings();
+        fetchVolunteers();
+    }, []);
 
     return (
         <>
@@ -114,9 +153,14 @@ function Admin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td><td></td><td></td>
-                                </tr>
+                            {newsletterData.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.first_name}</td>
+                            <td>{item.last_name}</td>
+                            <td>{item.email}</td>
+                        </tr>
+                    ))}
+
                             </tbody>
                         </table>
                         <h2 className="table_header">Space Booking Form Data</h2>
@@ -138,13 +182,22 @@ function Admin() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td>
-                                    </tr>
-                                </tbody>
+                    {bookingData.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.first_name}</td>
+                            <td>{item.last_name}</td>
+                            <td>{item.email}</td>
+                            <td>{item.clubOrganization}</td>
+                            <td>{item.primaryContactName}</td>
+                            <td>{item.primaryContactEmail}</td>
+                            <td>{item.purpose}</td>
+                            <td>{item.bookingTime}</td>
+                            <td>{item.recurringDays}</td>
+                            <td>{item.spaceNeeded}</td>
+                            <td>{item.closeSpace ? "Yes" : "No"}</td>
+                        </tr>
+                    ))}
+                </tbody>
                             </table>
                         </div>
 
@@ -167,13 +220,21 @@ function Admin() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td><td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
+                    {volunteerData.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.first_name}</td>
+                            <td>{item.last_name}</td>
+                            <td>{item.email}</td>
+                            <td>{item.pronouns}</td>
+                            <td>{item.graduation_year}</td>
+                            <td>{item.phone}</td>
+                            <td>{item.help_events ? "Yes" : "No"}</td>
+                            <td>{item.help_library ? "Yes" : "No"}</td>
+                            <td>{item.safe_space}</td>
+                            <td>{item.questions}</td>
+                        </tr>
+                    ))}
+                </tbody>
                             </table>
                         </div>
                     </div>
