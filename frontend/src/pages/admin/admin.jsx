@@ -7,6 +7,7 @@ import "./admin.css";
 
 function Admin() {
     const [title, setTitle] = useState("");
+    const [author, setAuthor] = useState("");
     const [content, setContent] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userEmail, setUserEmail] = useState("");
@@ -128,6 +129,15 @@ function Admin() {
                             type="text"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
+                            className="admin_titleInput"
+                        />
+                    </div>
+                    <div className="admin_formGroup">
+                        <label className="form_questions">Author</label>
+                        <input
+                            type="text"
+                            value={author}
+                            onChange={(e) => setAuthor(e.target.value)}
                             className="admin_titleInput"
                         />
                     </div>
