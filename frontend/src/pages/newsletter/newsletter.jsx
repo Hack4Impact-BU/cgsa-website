@@ -12,12 +12,11 @@ function Newsletter() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5001/newsletter', {
-        first_name: firstName,
-        last_name: lastName,
+        firstName: firstName,
+        lastName: lastName,
         email: email,
       });
-
-      setMessage('Thank you for signing up!');
+      setMessage(response.data.message);
       setError(null);
     } catch (error) {
       setMessage(null);

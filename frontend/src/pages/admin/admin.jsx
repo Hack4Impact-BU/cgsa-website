@@ -4,6 +4,7 @@ import { GoogleLogin, GoogleLogout } from "@leecheuk/react-google-login";
 import { gapi } from "gapi-script";
 import "react-quill/dist/quill.snow.css";
 import "./admin.css";
+import { DateTime } from 'luxon';
 
 function Admin() {
     const [title, setTitle] = useState("");
@@ -165,8 +166,8 @@ function Admin() {
                             <tbody>
                             {newsletterData.map((item, index) => (
                         <tr key={index}>
-                            <td>{item.first_name}</td>
-                            <td>{item.last_name}</td>
+                            <td>{item.firstName}</td>
+                            <td>{item.lastName}</td>
                             <td>{item.email}</td>
                         </tr>
                     ))}
@@ -194,17 +195,17 @@ function Admin() {
                                 <tbody>
                     {bookingData.map((item, index) => (
                         <tr key={index}>
-                            <td>{item.first_name}</td>
-                            <td>{item.last_name}</td>
+                            <td>{item.firstName}</td>
+                            <td>{item.lastName}</td>
                             <td>{item.email}</td>
-                            <td>{item.clubOrganization}</td>
+                            <td>{item.clubOrganization || "N/A"}</td>
                             <td>{item.primaryContactName}</td>
                             <td>{item.primaryContactEmail}</td>
                             <td>{item.purpose}</td>
-                            <td>{item.bookingTime}</td>
-                            <td>{item.recurringDays}</td>
+                            <td>{DateTime.fromISO(item.bookingTime).toFormat('MM/dd/yyyy h:mm a')}</td>
+                            <td>{item.recurringDays || "N/A"}</td>
                             <td>{item.spaceNeeded}</td>
-                            <td>{item.closeSpace ? "Yes" : "No"}</td>
+                            <td>{item.closeSpace}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -232,15 +233,15 @@ function Admin() {
                                 <tbody>
                     {volunteerData.map((item, index) => (
                         <tr key={index}>
-                            <td>{item.first_name}</td>
-                            <td>{item.last_name}</td>
+                            <td>{item.firstName}</td>
+                            <td>{item.lastName}</td>
                             <td>{item.email}</td>
                             <td>{item.pronouns}</td>
-                            <td>{item.graduation_year}</td>
+                            <td>{item.graduationYear}</td>
                             <td>{item.phone}</td>
-                            <td>{item.help_events ? "Yes" : "No"}</td>
-                            <td>{item.help_library ? "Yes" : "No"}</td>
-                            <td>{item.safe_space}</td>
+                            <td>{item.helpEvents}</td>
+                            <td>{item.helpLibrary}</td>
+                            <td>{item.safeSpace}</td>
                             <td>{item.questions}</td>
                         </tr>
                     ))}
