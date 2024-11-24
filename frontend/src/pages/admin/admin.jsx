@@ -4,15 +4,20 @@ import { GoogleLogin, GoogleLogout } from "@leecheuk/react-google-login";
 import { gapi } from "gapi-script";
 import "react-quill/dist/quill.snow.css";
 import "./admin.css";
+import { DateTime } from 'luxon';
 
 function Admin() {
     const [title, setTitle] = useState("");
+    const [author, setAuthor] = useState("");
     const [content, setContent] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userEmail, setUserEmail] = useState("");
+    const [newsletterData, setNewsletterData] = useState([]);
+    const [bookingData, setBookingData] = useState([]);
+    const [volunteerData, setVolunteerData] = useState([]);
 
     const CLIENTID = "350830969073-gu011la3p72geggr365bb41u9itah08d.apps.googleusercontent.com";
-    const allowedEmails = ["sethun@bu.edu", "agodel@bu.edu"];
+    const allowedEmails = ["sethun@bu.edu", "agodel@bu.edu", "mebattll@gmail.com", "zbattal@bu.edu"];
 
     const onLoginSuccess = (res) => {
         const email = res.profileObj.email;
@@ -54,6 +59,42 @@ function Admin() {
         ],
     };
 
+    useEffect(() => {
+        const fetchNewsletters = async () => {
+            try {
+                const response = await fetch("http://localhost:5001/newsletters");
+                const data = await response.json();
+                setNewsletterData(data);
+            } catch (error) {
+                console.error("Error fetching newsletters:", error);
+            }
+        };
+
+        const fetchBookings = async () => {
+            try {
+                const response = await fetch("http://localhost:5001/bookings");
+                const data = await response.json();
+                setBookingData(data);
+            } catch (error) {
+                console.error("Error fetching bookings:", error);
+            }
+        };
+
+        const fetchVolunteers = async () => {
+            try {
+                const response = await fetch("http://localhost:5001/volunteers");
+                const data = await response.json();
+                setVolunteerData(data);
+            } catch (error) {
+                console.error("Error fetching volunteers:", error);
+            }
+        };
+
+        fetchNewsletters();
+        fetchBookings();
+        fetchVolunteers();
+    }, []);
+
     return (
         <>
             <h1 className="page_title" style={{marginBottom: "-1rem"}}>Admin</h1>
@@ -93,6 +134,15 @@ function Admin() {
                         />
                     </div>
                     <div className="admin_formGroup">
+                        <label className="form_questions">Author</label>
+                        <input
+                            type="text"
+                            value={author}
+                            onChange={(e) => setAuthor(e.target.value)}
+                            className="admin_titleInput"
+                        />
+                    </div>
+                    <div className="admin_formGroup">
                         <label className="form_questions">Blog Post</label>
                         <ReactQuill
                             value={content}
@@ -114,9 +164,14 @@ function Admin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td><td></td><td></td>
-                                </tr>
+                            {newsletterData.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.firstName}</td>
+                            <td>{item.lastName}</td>
+                            <td>{item.email}</td>
+                        </tr>
+                    ))}
+
                             </tbody>
                         </table>
                         <h2 className="table_header">Space Booking Form Data</h2>
@@ -138,13 +193,22 @@ function Admin() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td>
-                                    </tr>
-                                </tbody>
+                    {bookingData.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.firstName}</td>
+                            <td>{item.lastName}</td>
+                            <td>{item.email}</td>
+                            <td>{item.clubOrganization || "N/A"}</td>
+                            <td>{item.primaryContactName}</td>
+                            <td>{item.primaryContactEmail}</td>
+                            <td>{item.purpose}</td>
+                            <td>{DateTime.fromISO(item.bookingTime).toFormat('MM/dd/yyyy h:mm a')}</td>
+                            <td>{item.recurringDays || "N/A"}</td>
+                            <td>{item.spaceNeeded}</td>
+                            <td>{item.closeSpace}</td>
+                        </tr>
+                    ))}
+                </tbody>
                             </table>
                         </div>
 
@@ -167,13 +231,21 @@ function Admin() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td><td></td>
-                                        <td></td><td></td><td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
+                    {volunteerData.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.firstName}</td>
+                            <td>{item.lastName}</td>
+                            <td>{item.email}</td>
+                            <td>{item.pronouns}</td>
+                            <td>{item.graduationYear}</td>
+                            <td>{item.phone}</td>
+                            <td>{item.helpEvents}</td>
+                            <td>{item.helpLibrary}</td>
+                            <td>{item.safeSpace}</td>
+                            <td>{item.questions}</td>
+                        </tr>
+                    ))}
+                </tbody>
                             </table>
                         </div>
                     </div>

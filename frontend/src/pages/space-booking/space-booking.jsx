@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './space-booking.css';
 
-
 function toggle(toToggle, value) {
     const element = document.getElementById(toToggle);
     const radio = document.getElementById(value);
@@ -28,6 +27,7 @@ function SpaceBooking() {
         closeSpace: '',
     });
     const [message, setMessage] = useState('');
+    const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,30 +36,14 @@ function SpaceBooking() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        // Transform field names to match the backend's expectations
-        const transformedData = {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            email: formData.email,
-            club_organization: formData.clubOrganization,
-            primary_contact_name: formData.primaryContactName,
-            primary_contact_email: formData.primaryContactEmail,
-            purpose: formData.purpose,
-            booking_time: formData.bookingTime,
-            recurring_days: formData.recurringDays,
-            space_needed: formData.spaceNeeded,
-            close_space: formData.closeSpace,
-        };
-
-        console.log("Submitting transformed data:", transformedData);
-
         try {
-            const response = await axios.post('http://127.0.0.1:5000/api/booking', transformedData);
+            const response = await axios.post('http://localhost:5001/booking', formData);
             setMessage(response.data.message);
+            setError(null);
         } catch (error) {
-            console.error("Error:", error.response ? error.response.data : error.message);
-            setMessage('Error submitting booking: ' + error.message);
+            console.error('Error:', error.response ? error.response.data : error.message);
+            setMessage(null);
+            setError('Error submitting booking: ' + (error.response ? error.response.data.error : error.message));
         }
     };
 
@@ -248,8 +232,22 @@ function SpaceBooking() {
                     <i>Remember to tidy the space after each event or meeting.</i>
                 </div>
                 <div className="form_center">
-                    <button className="form_submit" type="submit">Submit</button><br />
-                    {message && <strong><i className='form_note'>{message}</i></strong>}
+                    <button className="form_submit" type="submit">Submit</button>
+                    <br />
+                    {message && (
+                        <strong>
+                            <i className="form_note" style={{ color: 'green' }}>
+                                {message}
+                            </i>
+                        </strong>
+                    )}
+                    {error && (
+                        <strong>
+                            <i className="form_note" style={{ color: 'red' }}>
+                                {error}
+                            </i>
+                        </strong>
+                    )}
                 </div>
             </form>
         </div>

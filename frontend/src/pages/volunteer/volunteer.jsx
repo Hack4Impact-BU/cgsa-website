@@ -12,43 +12,28 @@ function Volunteer() {
         helpEvents: '',
         helpLibrary: '',
         safeSpace: '',
-        questions: ''
+        questions: '',
     });
     const [message, setMessage] = useState('');
+    const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prevData => ({ ...prevData, [name]: value }));
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        // Transform data to match backend field names
-        const transformedData = {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            email: formData.email,
-            pronouns: formData.pronouns,
-            graduation_year: formData.graduationYear,
-            phone: formData.phone,
-            help_events: formData.helpEvents,
-            help_library: formData.helpLibrary,
-            safe_space: formData.safeSpace,
-            questions: formData.questions,
-        };
-
-        console.log("Transformed Data being sent:", transformedData);
-
         try {
-            const response = await axios.post('http://127.0.0.1:5000/api/volunteer', transformedData);
+            const response = await axios.post('http://localhost:5001/volunteer', formData);
             setMessage(response.data.message);
+            setError(null);
         } catch (error) {
-            console.error("Error:", error.response ? error.response.data : error.message);
-            setMessage('Error signing up to volunteer: ' + (error.response ? error.response.data.error : error.message));
+            console.error('Error:', error.response ? error.response.data : error.message);
+            setMessage(null);
+            setError('Error signing up to volunteer: ' + (error.response ? error.response.data.error : error.message));
         }
     };
-
 
     return (
         <>
@@ -75,12 +60,12 @@ function Volunteer() {
                         <div className="form_split">
                             <p>Pronouns</p>
                             <p>Graduation Year</p>
-                            <input type='text' name='pronouns' value={formData.pronouns} onChange={handleChange} />
-                            <input type='number' name='graduationYear' min={new Date().getFullYear()} max={(new Date().getFullYear()) + 4} value={formData.graduationYear} onChange={handleChange} />
+                            <input type='text' name='pronouns' value={formData.pronouns} onChange={handleChange} required />
+                            <input type='number' name='graduationYear' min={new Date().getFullYear()} max={(new Date().getFullYear()) + 4} value={formData.graduationYear} onChange={handleChange} required />
                         </div>
                         <div className="form_fullLine" style={{ width: '20%' }}>
                             <p>Phone Number</p>
-                            <input type='text' name='phone' value={formData.phone} onChange={handleChange} />
+                            <input type='text' name='phone' value={formData.phone} onChange={handleChange} required />
                         </div>
                         <div className="form_note" style={{ marginBottom: '-3.5rem' }}>
                             <i>Please fill out <a href="https://docs.google.com/spreadsheets/d/1rTx-5Iu2CQYzHKCdiOWHDR_3A0xsGaccdHIkmPfAsoQ/edit?gid=1133208261#gid=1133208261" target="_blank">this spreadsheet</a> with the hours you would like to volunteer in the space.</i><br />
@@ -88,26 +73,40 @@ function Volunteer() {
                         </div>
                         <div className="form_radio">
                             <p>Are you interested in helping run events?</p>
-                            <input type='radio' name='helpEvents' value='yes' onChange={handleChange} /><label>Yes</label>
-                            <input type='radio' name='helpEvents' value='no' onChange={handleChange} /><label>No</label>
+                            <input type='radio' name='helpEvents' value='yes' onChange={handleChange} required /><label>Yes</label>
+                            <input type='radio' name='helpEvents' value='no' onChange={handleChange} required /><label>No</label>
                         </div>
                         <div className="form_radio">
                             <p>Are you interested in helping organize our library?</p>
-                            <input type='radio' name='helpLibrary' value='yes' onChange={handleChange} /><label>Yes</label>
-                            <input type='radio' name='helpLibrary' value='no' onChange={handleChange} /><label>No</label>
+                            <input type='radio' name='helpLibrary' value='yes' onChange={handleChange} required /><label>Yes</label>
+                            <input type='radio' name='helpLibrary' value='no' onChange={handleChange} required /><label>No</label>
                         </div>
                         <div className="form_fullLine" style={{ width: '40%' }}>
                             <p>How will you help keep the CGSA a safe space?</p>
-                            <textarea name='safeSpace' value={formData.safeSpace} onChange={handleChange}></textarea>
+                            <textarea name='safeSpace' value={formData.safeSpace} onChange={handleChange} required></textarea>
                         </div>
                         <div className="form_fullLine">
                             <p>Do you have any questions?</p>
-                            <input type='text' name='questions' value={formData.questions} onChange={handleChange} />
+                            <input type='text' name='questions' value={formData.questions} onChange={handleChange} required />
                         </div>
                     </div>
                     <div className='form_center'>
-                        <button className='form_submit' type='submit'>Submit</button><br />
-                        {message && <strong><i className='form_note'>{message}</i></strong>}
+                        <button className='form_submit' type='submit'>Submit</button>
+                        <br />
+                        {message && (
+                            <strong>
+                                <i className="form_note" style={{ color: 'green' }}>
+                                    {message}
+                                </i>
+                            </strong>
+                        )}
+                        {error && (
+                            <strong>
+                                <i className="form_note" style={{ color: 'red' }}>
+                                    {error}
+                                </i>
+                            </strong>
+                        )}
                     </div>
                 </form>
             </div>
