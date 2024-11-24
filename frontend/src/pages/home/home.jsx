@@ -7,8 +7,19 @@ import Image4 from '../../assets/about_image4.png';
 import Image5 from '../../assets/about_image5.png';
 import Image6 from '../../assets/about_image6.png';
 import CGSA from '../../assets/cgsa.jpg';
+import { DateTime } from 'luxon';
 
 function Home() {
+    const [events, setEvents] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5001/calendar')
+            .then(res => res.json())
+            .then(data => {
+                let newEvents = data.items;
+                newEvents = newEvents.filter((item) => item.start.dateTime > new Date()).sort((a,b) => b.start.dateTime-a.start.dateTime);
+                setEvents(Object.assign(['null','null','null'], newEvents.slice(0,3)));
+            })
+    })
 
     const images = [Image1, Image2, Image3, Image4, Image5, Image6];
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,18 +81,14 @@ function Home() {
                 Upcoming Events
             </h1>
             <div className='home_eventsContainer'>
-                <div className='home_event'>
-                    <h2>Event Name</h2>
-                    <p>Placeholder text here.</p>
-                </div>
-                <div className='home_event'>
-                    <h2>Event Name</h2>
-                    <p>Placeholder text here.</p>
-                </div>
-                <div className='home_event'>
-                    <h2>Event Name</h2>
-                    <p>Placeholder text here.</p>
-                </div>
+                {
+                    events.map((item, index) => (
+                        <div key={index} className='home_event'>
+                            <h2>{item != 'null' ? item.summary : 'More Events Soon!'}</h2>
+                            <p>{item != 'null' ? DateTime.fromISO(item.start.dateTime).toFormat('MM/dd/yyyy h:mm a') : 'Look out for more announcements about future events!'}</p>
+                        </div>
+                    ))
+                }
             </div>
 
         </div>

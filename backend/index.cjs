@@ -1,7 +1,11 @@
 const { MongoClient } = require("mongodb");
+const { readFileSync } = require("fs");
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -103,8 +107,29 @@ app.post('/bookings', (req, res) => {
     res.json(doc);
 });
 
+app.get('/text', (req, res) => {
+    try {
+        const data = readFileSync('./pages.json')
+        res.status(200).json(JSON.parse(data))
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Error' })
+    }
+});
 
+app.get('/calendar', async (req, res) => {
+    try {
+        const data = await fetch('https://www.googleapis.com/calendar/v3/calendars/c_5f8a26005bea5c82bec0a44e4bc45d2524bfae7d556666a5ef3741eb150c5b38@group.calendar.google.com/events?key='+process.env.CALENDAR_API_KEY);
+        if (!data.ok) {
+            throw new Error('Oops, something went wrong!')
+        }
+        res.status(200).json(await data.json())
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Error' })
+    }
+})
 
 app.listen(5001, () => {
     console.log('Server listening on port 5001');
-  });
+});
