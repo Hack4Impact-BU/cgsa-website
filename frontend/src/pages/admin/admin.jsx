@@ -17,7 +17,7 @@ function Admin() {
     const [volunteerData, setVolunteerData] = useState([]);
 
     const CLIENTID = "350830969073-gu011la3p72geggr365bb41u9itah08d.apps.googleusercontent.com";
-    const allowedEmails = ["sethun@bu.edu", "agodel@bu.edu", "mebattll@gmail.com", "zbattal@bu.edu"];
+    const allowedEmails = ["sethun@bu.edu", "agodel@bu.edu", "zbattal@bu.edu", "cgsa@bu.edu"];
 
     const onLoginSuccess = (res) => {
         const email = res.profileObj.email;
