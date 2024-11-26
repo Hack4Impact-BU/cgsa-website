@@ -7,7 +7,7 @@ function Menu({ visible }) {
   const links = new Map([['About Us', 'about-us'], ['Blog', 'blog'], ['Contact Us', 'contact-us'], ['Home', ''], ['Newsletter Sign-Up', 'newsletter'], ['Resources', 'resources'], ['Space Booking Form', 'space-booking'], ['Volunteer Sign-Up', 'volunteer']])
 
   useEffect(() => {
-    fetch('http://localhost:5001/text')
+    fetch('https://cgsa-website-9ee3262d35c4.herokuapp.com/text')
       .then(res => res.json())
       .then(data => {
         setBody(data.pages)
