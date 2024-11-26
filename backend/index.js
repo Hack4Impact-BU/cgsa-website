@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 import { readFileSync } from 'fs'
 import { MongoClient } from 'mongodb'
 import mailchimp from '@mailchimp/mailchimp_marketing'
-import createHtmlTemplate from '../frontend/src/pages/admin/emailTemplate.js'
+import createHtmlTemplate from './emailTemplate.js'
 
 dotenv.config()
 
@@ -90,9 +90,9 @@ app.post('/send-newsletter', async (req, res) => {
             },
             settings: {
                 subject_line: subject,
-                title: 'CGSA',
-                from_name: 'CGSA',
-                reply_to: 'sethun@bu.edu',
+                title: 'BU CGSA',
+                from_name: 'BU CGSA',
+                reply_to: 'cgsa@bu.edu',
             },
         });
 
