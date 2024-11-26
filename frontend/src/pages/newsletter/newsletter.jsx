@@ -11,7 +11,7 @@ function Newsletter() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5001/newsletter', {
+      const response = await axios.post('https://cgsa-website-9ee3262d35c4.herokuapp.com/newsletter', {
         firstName: firstName,
         lastName: lastName,
         email: email,

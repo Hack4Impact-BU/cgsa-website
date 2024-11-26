@@ -6,7 +6,7 @@ import parse from 'html-react-parser'
 function Blog() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5001/blogs')
+        fetch('https://cgsa-website-9ee3262d35c4.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [])

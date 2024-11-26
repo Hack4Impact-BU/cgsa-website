@@ -62,7 +62,7 @@ function Admin() {
     useEffect(() => {
         const fetchNewsletters = async () => {
             try {
-                const response = await fetch("http://localhost:5001/newsletters");
+                const response = await fetch("https://cgsa-website-9ee3262d35c4.herokuapp.com/newsletters");
                 const data = await response.json();
                 setNewsletterData(data);
             } catch (error) {
@@ -72,7 +72,7 @@ function Admin() {
 
         const fetchBookings = async () => {
             try {
-                const response = await fetch("http://localhost:5001/bookings");
+                const response = await fetch("https://cgsa-website-9ee3262d35c4.herokuapp.com/bookings");
                 const data = await response.json();
                 setBookingData(data);
             } catch (error) {
@@ -82,7 +82,7 @@ function Admin() {
 
         const fetchVolunteers = async () => {
             try {
-                const response = await fetch("http://localhost:5001/volunteers");
+                const response = await fetch("https://cgsa-website-9ee3262d35c4.herokuapp.com/volunteers");
                 const data = await response.json();
                 setVolunteerData(data);
             } catch (error) {
@@ -105,7 +105,7 @@ function Admin() {
             const blogPost = { title, author, content };
 
             // Send blog post to the backend
-            const blogResponse = await fetch('http://localhost:5001/blog', {
+            const blogResponse = await fetch('https://cgsa-website-9ee3262d35c4.herokuapp.com/blog', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(blogPost),
@@ -117,7 +117,7 @@ function Admin() {
             }
 
             // Send newsletter
-            const newsletterResponse = await fetch('http://localhost:5001/send-newsletter', {
+            const newsletterResponse = await fetch('https://cgsa-website-9ee3262d35c4.herokuapp.com/send-newsletter', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

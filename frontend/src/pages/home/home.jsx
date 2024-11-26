@@ -12,7 +12,7 @@ import { DateTime } from 'luxon';
 function Home() {
     const [events, setEvents] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5001/calendar')
+        fetch('https://cgsa-website-9ee3262d35c4.herokuapp.com/calendar')
             .then(res => res.json())
             .then(data => {
                 let newEvents = data.items;

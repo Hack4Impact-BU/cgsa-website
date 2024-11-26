@@ -37,7 +37,7 @@ function SpaceBooking() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5001/booking', formData);
+            const response = await axios.post('https://cgsa-website-9ee3262d35c4.herokuapp.com/booking', formData);
             setMessage(response.data.message);
             setError(null);
         } catch (error) {
