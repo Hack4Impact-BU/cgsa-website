@@ -16,3 +16,7 @@
 .blog_post h3 {
     margin-top: -1rem;
 }
+
+.blog_post img {
+    width: 40rem;
+}
