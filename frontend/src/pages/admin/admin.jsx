@@ -95,9 +95,58 @@ function Admin() {
         fetchVolunteers();
     }, []);
 
+    const handleSubmit = async () => {
+        if (!title || !author || !content) {
+            alert('Please fill in all fields!');
+            return;
+        }
+
+        try {
+            const blogPost = { title, author, content };
+
+            // Send blog post to the backend
+            const blogResponse = await fetch('http://localhost:5001/blog', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(blogPost),
+            });
+
+            if (!blogResponse.ok) {
+                const error = await blogResponse.json();
+                throw new Error(error.message || 'Failed to create blog post');
+            }
+
+            // Send newsletter
+            const newsletterResponse = await fetch('http://localhost:5001/send-newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    subject: title,
+                    content,
+                    author, // Include the author
+                }),
+            });
+
+            const result = await newsletterResponse.json();
+            if (!newsletterResponse.ok) {
+                throw new Error(result.message || 'Failed to send newsletter');
+            }
+
+            alert('Blog post created and newsletter sent!');
+            console.log('Recipients:', result.recipients);
+            setTitle('');
+            setAuthor('');
+            setContent('');
+        } catch (error) {
+            console.error('Error:', error.message);
+            alert(`Error: ${error.message}`);
+        }
+    };
+
+
     return (
         <>
-            <h1 className="page_title" style={{marginBottom: "-1rem"}}>Admin</h1>
+            <h1 className="page_title" style={{ marginBottom: "-1rem" }}>Admin</h1>
             {!isAuthenticated ? (
                 <GoogleLogin
                     clientId={CLIENTID}
@@ -151,7 +200,7 @@ function Admin() {
                             placeholder="Write your blog post here..."
                         />
                     </div>
-                    <button className="form_submit">Submit</button>
+                    <button className="form_submit" onClick={handleSubmit}>Submit</button>
 
                     <div className="tables_container">
                         <h2 className="table_header">Newsletter Sign-Up Data</h2>
@@ -164,13 +213,13 @@ function Admin() {
                                 </tr>
                             </thead>
                             <tbody>
-                            {newsletterData.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.firstName}</td>
-                            <td>{item.lastName}</td>
-                            <td>{item.email}</td>
-                        </tr>
-                    ))}
+                                {newsletterData.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{item.firstName}</td>
+                                        <td>{item.lastName}</td>
+                                        <td>{item.email}</td>
+                                    </tr>
+                                ))}
 
                             </tbody>
                         </table>
@@ -193,22 +242,22 @@ function Admin() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                    {bookingData.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.firstName}</td>
-                            <td>{item.lastName}</td>
-                            <td>{item.email}</td>
-                            <td>{item.clubOrganization || "N/A"}</td>
-                            <td>{item.primaryContactName}</td>
-                            <td>{item.primaryContactEmail}</td>
-                            <td>{item.purpose}</td>
-                            <td>{DateTime.fromISO(item.bookingTime).toFormat('MM/dd/yyyy h:mm a')}</td>
-                            <td>{item.recurringDays || "N/A"}</td>
-                            <td>{item.spaceNeeded}</td>
-                            <td>{item.closeSpace}</td>
-                        </tr>
-                    ))}
-                </tbody>
+                                    {bookingData.map((item, index) => (
+                                        <tr key={index}>
+                                            <td>{item.firstName}</td>
+                                            <td>{item.lastName}</td>
+                                            <td>{item.email}</td>
+                                            <td>{item.clubOrganization || "N/A"}</td>
+                                            <td>{item.primaryContactName}</td>
+                                            <td>{item.primaryContactEmail}</td>
+                                            <td>{item.purpose}</td>
+                                            <td>{DateTime.fromISO(item.bookingTime).toFormat('MM/dd/yyyy h:mm a')}</td>
+                                            <td>{item.recurringDays || "N/A"}</td>
+                                            <td>{item.spaceNeeded}</td>
+                                            <td>{item.closeSpace}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
                             </table>
                         </div>
 
@@ -231,21 +280,21 @@ function Admin() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                    {volunteerData.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.firstName}</td>
-                            <td>{item.lastName}</td>
-                            <td>{item.email}</td>
-                            <td>{item.pronouns}</td>
-                            <td>{item.graduationYear}</td>
-                            <td>{item.phone}</td>
-                            <td>{item.helpEvents}</td>
-                            <td>{item.helpLibrary}</td>
-                            <td>{item.safeSpace}</td>
-                            <td>{item.questions}</td>
-                        </tr>
-                    ))}
-                </tbody>
+                                    {volunteerData.map((item, index) => (
+                                        <tr key={index}>
+                                            <td>{item.firstName}</td>
+                                            <td>{item.lastName}</td>
+                                            <td>{item.email}</td>
+                                            <td>{item.pronouns}</td>
+                                            <td>{item.graduationYear}</td>
+                                            <td>{item.phone}</td>
+                                            <td>{item.helpEvents}</td>
+                                            <td>{item.helpLibrary}</td>
+                                            <td>{item.safeSpace}</td>
+                                            <td>{item.questions}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
                             </table>
                         </div>
                     </div>
