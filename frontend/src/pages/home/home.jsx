@@ -19,7 +19,7 @@ function Home() {
                 newEvents = newEvents.filter((item) => item.start != null).sort((a,b) => b.start.dateTime-a.start.dateTime)
                 setEvents(Object.assign(['null','null','null'], newEvents.slice(0,3)))
             })
-    })
+    }, [])
 
     const images = [Image1, Image2, Image3, Image4, Image5, Image6];
     const [currentIndex, setCurrentIndex] = useState(0);
