@@ -169,7 +169,7 @@ app.get('/text', (req, res) => {
 
 app.get('/calendar', async (req, res) => {
     try {
-        const data = await fetch('https://www.googleapis.com/calendar/v3/calendars/c_5f8a26005bea5c82bec0a44e4bc45d2524bfae7d556666a5ef3741eb150c5b38@group.calendar.google.com/events?key=' + process.env.CALENDAR_API_KEY)
+        const data = await fetch('https://www.googleapis.com/calendar/v3/calendars/c_5f8a26005bea5c82bec0a44e4bc45d2524bfae7d556666a5ef3741eb150c5b38@group.calendar.google.com/events?maxResults=2500&timeMin=' + (new Date()).toISOString() + '&key=' + process.env.CALENDAR_API_KEY)
         if (!data.ok) {
             throw new Error('Oops, something went wrong!')
         }

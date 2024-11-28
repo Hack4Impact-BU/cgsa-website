@@ -15,9 +15,9 @@ function Home() {
         fetch('https://cgsa-website-9ee3262d35c4.herokuapp.com/calendar')
             .then(res => res.json())
             .then(data => {
-                let newEvents = data.items;
-                newEvents = newEvents.filter((item) => item.start.dateTime > new Date()).sort((a,b) => b.start.dateTime-a.start.dateTime);
-                setEvents(Object.assign(['null','null','null'], newEvents.slice(0,3)));
+                let newEvents = data.items
+                newEvents = newEvents.filter((item) => item.start != null).sort((a,b) => b.start.dateTime-a.start.dateTime)
+                setEvents(Object.assign(['null','null','null'], newEvents.slice(0,3)))
             })
     })
 

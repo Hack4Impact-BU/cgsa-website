@@ -7,6 +7,7 @@
     border-left: solid 3px #ded7f5;
     padding-left: 1rem;
     font-family: 'Lora';
+    margin-block: 2rem;
 }
 
 .blog_post h1, .blog_post h3 {
