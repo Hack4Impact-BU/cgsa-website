@@ -13,7 +13,7 @@
 
 body::after{
     position: absolute; width: 0; height: 0; overflow: hidden; z-index: -1;
-    content: url(assets/about_image1) url(assets/about_image2) url(assets/about_image3) url(assets/about_image4) url(assets/about_image5) url(assets/about_image6);
+    content: url(assets/about_image1.png) url(assets/about_image2.png) url(assets/about_image3.png) url(assets/about_image4.png) url(assets/about_image5.png) url(assets/about_image6.png);
 }
 
 body {
