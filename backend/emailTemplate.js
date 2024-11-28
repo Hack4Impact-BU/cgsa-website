@@ -54,6 +54,9 @@ const createHtmlTemplate = (title, author, content) => {
             h1 {
                 font-family: Libre Bodoni;
             }
+            img {
+                width: 40rem;
+            }
         </style>
     </head>
     <body>
