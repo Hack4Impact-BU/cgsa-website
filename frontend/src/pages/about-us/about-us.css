@@ -18,6 +18,7 @@
 .about_description {
     font-family: 'Lora';
     font-size: 20px;
+    text-align: justify;
 }
 
 .about_eboardContainer {
@@ -26,6 +27,7 @@
     justify-content: center;
     align-items: center;
     width: 80%;
+    margin: auto;
 }
 
 .about_eboardPicturesWrapper {
@@ -38,4 +40,40 @@
 .about_eboardPicture {
     width: 200px;
     height: 200px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 992px) {
+    .about_eboardContainer {
+        width: 90%;
+    }
+
+    .about_eboardPicturesWrapper {
+        grid-template-columns: auto auto;
+        column-gap: 30px;
+    }
+
+    .about_description {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about_eboardContainer {
+        width: 95%;
+    }
+
+    .about_eboardPicturesWrapper {
+        grid-template-columns: auto;
+        row-gap: 20px;
+    }
+
+    .about_description {
+        font-size: 16px;
+    }
+
+    .about_eboardPicture {
+        width: 150px;
+        height: 150px;
+    }
 }
