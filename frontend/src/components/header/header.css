@@ -25,6 +25,7 @@ b {
     border: 0.2rem solid #ded7f5;
     background-color: #fff;
     transition: background-color 0.5s;
+    border-radius: 0.2rem;
 }
 
 #fullmenu:hover {
@@ -53,10 +54,12 @@ b {
 
 #navbar a:hover {
     background-color: #ded7f5;
+    border-radius: 0.2rem;
 }
 
 #selected {
     background-color: #ded7f5;
+    border-radius: 0.2rem;
 }
 
 hr {
@@ -66,4 +69,29 @@ hr {
     margin-left: 0;
     border-color: #ded7f5;
     border-style: solid;
+}
+
+@media (max-width: 900px) {
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    #navbar {
+        gap: 1rem;
+    }
+
+    #navbar a {
+        font-size: 1rem;
+    }
+
+    #fullmenu {
+        height: 3rem;
+        width: 8rem;
+        font-size: 1rem;
+    }
+
+    #fullmenu img {
+        width: 1.5rem;
+    }
 }

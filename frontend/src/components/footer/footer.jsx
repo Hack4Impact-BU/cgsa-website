@@ -12,18 +12,24 @@ function Footer() {
         <>
             <div id="footer">
                 <div id="socials">
-                    <a href="https://www.instagram.com/bucgsa" target="_blank"><img src={Instagram}/></a>
-                    <a href="https://x.com/bucgsa" target="_blank"><img src={Twitter}/></a>
+                    <a href="https://www.instagram.com/bucgsa" target="_blank"><img src={Instagram} /></a>
+                    <a href="https://x.com/bucgsa" target="_blank"><img src={Twitter} /></a>
                 </div>
-                <img src={BUPlate} id="plate"/>
+                <img src={BUPlate} id="plate" />
                 <p id='title'><b>Boston University</b> Center for Gender, Sexuality, and Activism</p>
                 <div id="contact">
-                    <img src={Map}/>
-                    <p>GSU Basement, 775 Comm. Ave, Boston MA 02215</p>
-                    <img src={Phone}/>
-                    <p>617-358-5575</p>
-                    <img src={Mail}/>
-                    <p>cgsa@bu.edu</p>
+                    <div id="contactItem">
+                        <img src={Map} />
+                        <p>GSU Basement 775 Comm. Ave, Boston MA 02215</p>
+                    </div>
+                    <div id="contactItem">
+                        <img src={Phone} />
+                        <p>617-358-5575</p>
+                    </div>
+                    <div id="contactItem">
+                        <img src={Mail} />
+                        <p>cgsa@bu.edu</p>
+                    </div>
                 </div>
             </div>
         </>

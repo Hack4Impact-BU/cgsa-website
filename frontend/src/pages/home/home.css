@@ -5,6 +5,7 @@
     align-items: center;
 }
 
+/* Original two-column layout stays for larger screens */
 .home_aboutContainer {
     display: flex;
     flex-direction: row;
@@ -44,7 +45,6 @@
     width: 32rem;
     height: 40rem;
     transition: background-image 2.5s ease-in-out;
-    margin-left: 1.75rem;
 }
 
 .home_aboutCard {
@@ -129,7 +129,7 @@
     width: 200px;
     height: 12px;
     position: absolute;
-    margin-left: 400px;
+    margin-left: 350px;
     top: -6px;
 }
 
@@ -139,4 +139,156 @@
     height: 12px;
     position: absolute;
     bottom: 0;
+}
+
+@media (max-width: 1150px) {
+
+    .home_aboutContainer {
+        flex-direction: row;
+        padding: 20px;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .home_aboutLeft,
+    .home_aboutRight {
+        width: 50%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home_imageContainer {
+        width: 400px;
+
+    }
+
+    .home_aboutHeading {
+        font-size: 56px;
+    }
+
+    .home_topTab {
+        width: 100px
+    }
+
+    .home_bigLetter {
+        font-size: 72px;
+    }
+
+    .home_aboutCard {
+        margin-right: 0;
+        width: 100%;
+        max-width: 500px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .home_button {
+        width: 300px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .home_image {
+        width: 400px;
+    }
+
+    .home_centerContainer {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .home_heading {
+        font-size: 24px;
+    }
+
+    .home_eventsContainer {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .home_event h2 {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .home_aboutContainer {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .home_aboutLeft,
+    .home_aboutRight {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home_aboutText {
+        font-size: 16px;
+    }
+
+    .home_imageContainer {
+        max-height: 400px;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .home_topTab {
+        width: 0px;
+    }
+
+    .home_aboutCard {
+        margin-right: 0;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .home_aboutHeading {
+        font-size: 36px;
+    }
+
+    .home_bigLetter {
+        font-size: 48px;
+    }
+
+    .home_button {
+        width: 300px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .home_image {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .home_centerContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .home_eventsContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .home_event {
+        width: 70%;
+        max-width: 300px;
+    }
+
 }
