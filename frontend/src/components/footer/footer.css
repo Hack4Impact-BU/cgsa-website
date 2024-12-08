@@ -56,3 +56,46 @@ b {
     margin-left: -1.5rem;
     font-size: 1.2rem;
 }
+
+@media (max-width: 900px) {
+    #socials {
+        gap: 1rem;
+    }
+
+    #socials img {
+        width: 2rem;
+    }
+
+    #plate {
+        width: 7rem;
+    }
+
+    #title {
+        font-size: 1rem;
+    }
+
+    #contact {
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+    }
+
+    #contactItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #contact img {
+        width: 1rem;
+        height: 1rem;
+        margin: 0;
+    }
+
+    #contact p {
+        font-size: 1rem;
+        margin-left: 0.5rem;
+    }
+}

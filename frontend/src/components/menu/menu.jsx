@@ -30,18 +30,18 @@ function Menu({ visible }) {
           let addResult = true
           if (query.includes(" ")) {
             const queryWords = query.split(" ")
-            for (let j = i; j < i+queryWords.length-1; j++)
-              if (j < words.length && words[j].toLowerCase() != queryWords[j-i].toLowerCase())
+            for (let j = i; j < i + queryWords.length - 1; j++)
+              if (j < words.length && words[j].toLowerCase() != queryWords[j - i].toLowerCase())
                 addResult = false
-            if (i+queryWords.length-1 < words.length && !words[i+queryWords.length-1].includes(queryWords[queryWords.length-1]))
+            if (i + queryWords.length - 1 < words.length && !words[i + queryWords.length - 1].includes(queryWords[queryWords.length - 1]))
               addResult = false
             if (addResult)
-              i += query.split(" ").length-1
+              i += query.split(" ").length - 1
           } else if (!words[i].toLowerCase().includes(query.toLowerCase())) {
             addResult = false
           }
           if (addResult)
-            newResults.push({id: newResults.length, page: obj.name, excerpt: i-3 <= 0 ? words.slice(0, i+4).join(' ')+'...' : i+4 >= words.length ? '...'+words.slice(i-3, words.length).join(' ') : '...'+words.slice(i-3, i+4).join(' ')+'...'})
+            newResults.push({ id: newResults.length, page: obj.name, excerpt: i - 3 <= 0 ? words.slice(0, i + 4).join(' ') + '...' : i + 4 >= words.length ? '...' + words.slice(i - 3, words.length).join(' ') : '...' + words.slice(i - 3, i + 4).join(' ') + '...' })
         }
       })
       setResults(newResults)
@@ -79,17 +79,17 @@ function Menu({ visible }) {
               <div id="search-results">
                 <ul>
                   {results.map((result) => (
-                    <a href={'/'+links.get(result.page)} key={result.id}>
+                    <a href={'/' + links.get(result.page)} key={result.id}>
                       <li>
-                        <p style={{fontWeight: 'bold'}}>{result.page}</p>
-                        <i style={{fontSize: '0.8rem'}}>{result.excerpt}</i>
+                        <p style={{ fontWeight: 'bold' }}>{result.page}</p>
+                        <i style={{ fontSize: '0.8rem' }}>{result.excerpt}</i>
                       </li>
                     </a>
                   ))}
                 </ul>
               </div>
             )}
-            <p id="search-text" style={{opacity: results.length === 0 ? "1" : "0"}}>No results found</p>
+            <p id="search-text" style={{ opacity: results.length === 0 ? "1" : "0" }}>No results found</p>
           </div>
         </div>
       )}
