@@ -13,9 +13,9 @@
 }
 
 .contact_contactContainer {
-    min-width: 650px;
+    min-width: 300px;
     max-width: 850px;
-    width: 70%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,8 +23,7 @@
     background-image:
         linear-gradient(rgba(255, 255, 255, 0), rgba(222, 215, 245, 0.5)),
         url('../../assets/contact_bg.jpg');
-    padding-right: 50px;
-    padding-left: 50px;
+    padding: 30px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -169,6 +168,20 @@
         font-size: 0.9rem;
         padding: 8px;
     }
+
+    .contact_contactContainer {
+        min-width: 300px;
+        max-width: 700px;
+        padding: 20px;
+    }
+
+    .contact_title {
+        font-size: 36px;
+    }
+
+    .contact_mainText {
+        font-size: 28px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -207,5 +220,19 @@
     .calendar_day {
         font-size: 0.8rem;
         padding: 6px;
+    }
+
+    .contact_contactContainer {
+        min-width: 100%;
+        width: 95%;
+        padding: 15px;
+    }
+
+    .contact_title {
+        font-size: 28px;
+    }
+
+    .contact_mainText {
+        font-size: 24px;
     }
 }
