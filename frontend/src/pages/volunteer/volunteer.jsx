@@ -48,10 +48,14 @@ function Volunteer() {
                 <form onSubmit={handleSubmit}>
                     <div className="form_questions">
                         <div className="form_split">
-                            <p>First Name</p>
-                            <p>Last Name</p>
-                            <input type='text' name='firstName' value={formData.firstName} onChange={handleChange} required />
-                            <input type='text' name='lastName' value={formData.lastName} onChange={handleChange} required />
+                            <div className="form_group">
+                                <label>First Name</label>
+                                <input type='text' name='firstName' value={formData.firstName} onChange={handleChange} required />
+                            </div>
+                            <div className="form_group">
+                                <label>Last Name</label>
+                                <input type='text' name='lastName' value={formData.lastName} onChange={handleChange} required />
+                            </div>
                         </div>
                         <div className="form_fullLine">
                             <p>BU Email</p>

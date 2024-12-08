@@ -19,5 +19,39 @@
 }
 
 .blog_post img {
-    width: 40rem;
+    width: 100%;
+    max-width: 40rem;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 992px) {
+    .blog_container {
+        width: 90%;
+    }
+
+    .blog_post img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog_container {
+        width: 95%;
+    }
+
+    .blog_post {
+        padding-left: 0.5rem;
+    }
+
+    .blog_post h1 {
+        font-size: 1.5rem;
+    }
+
+    .blog_post h3 {
+        font-size: 1rem;
+    }
+
+    .blog_post img {
+        width: 100%;
+    }
 }
