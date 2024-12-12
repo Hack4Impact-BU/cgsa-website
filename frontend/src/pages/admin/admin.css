@@ -36,6 +36,45 @@
     min-height: 10rem;
 }
 
+/* Media Queries for responsiveness */
+@media (max-width: 992px) {
+    .admin_wrapper {
+        padding: 15px;
+    }
+
+    .admin_titleInput {
+        font-size: 1rem;
+        height: 1rem;
+    }
+
+    .quill {
+        font-size: 0.9rem;
+    }
+
+    .ql-container {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin_wrapper {
+        padding: 10px;
+    }
+
+    .admin_titleInput {
+        font-size: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .quill {
+        font-size: 0.8rem;
+    }
+
+    .ql-container {
+        font-size: 0.8rem;
+    }
+}
+
 .tables_container {
     margin-top: 60px;
 }

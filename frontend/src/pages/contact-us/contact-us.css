@@ -13,9 +13,9 @@
 }
 
 .contact_contactContainer {
-    min-width: 650px;
+    min-width: 300px;
     max-width: 850px;
-    width: 70%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,8 +23,7 @@
     background-image:
         linear-gradient(rgba(255, 255, 255, 0), rgba(222, 215, 245, 0.5)),
         url('../../assets/contact_bg.jpg');
-    padding-right: 50px;
-    padding-left: 50px;
+    padding: 30px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -66,4 +65,174 @@
     background-color: #ded7f580;
     box-shadow: 4px -3px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+}
+
+.contact_us_wrapper {
+    padding: 20px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.contact_us_formGroup {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact_us_titleInput {
+    font-family: 'Lora';
+    font-size: 1.2rem;
+    height: 1.2rem;
+    outline: none;
+    border: 0.1rem solid #ded7f5;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    margin-top: 1rem;
+}
+
+.contact_us_textarea {
+    font-family: 'Lora';
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #ded7f5;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    vertical-align: middle;
+    min-height: 10rem;
+    margin-top: 1rem;
+}
+
+/* Base styles */
+.calendar_wrapper {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.calendar_header {
+    font-family: 'Lora';
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.calendar_grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar_day {
+    font-family: 'Lora';
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ded7f5;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 992px) {
+    .contact_us_wrapper {
+        padding: 15px;
+        max-width: 700px;
+    }
+
+    .contact_us_titleInput {
+        font-size: 1rem;
+        height: 1rem;
+    }
+
+    .contact_us_textarea {
+        font-size: 0.9rem;
+    }
+
+    .contact_contactButton {
+        width: 350px;
+        font-size: 20px;
+    }
+
+    .calendar_wrapper {
+        padding: 15px;
+        max-width: 900px;
+    }
+
+    .calendar_header {
+        font-size: 1.5rem;
+    }
+
+    .calendar_grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .calendar_day {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .contact_contactContainer {
+        min-width: 300px;
+        max-width: 700px;
+        padding: 20px;
+    }
+
+    .contact_title {
+        font-size: 36px;
+    }
+
+    .contact_mainText {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact_us_wrapper {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .contact_us_titleInput {
+        font-size: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .contact_us_textarea {
+        font-size: 0.8rem;
+    }
+
+    .contact_contactButton {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .calendar_wrapper {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .calendar_header {
+        font-size: 1.2rem;
+    }
+
+    .calendar_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .calendar_day {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+
+    .contact_contactContainer {
+        min-width: 100%;
+        width: 95%;
+        padding: 15px;
+    }
+
+    .contact_title {
+        font-size: 28px;
+    }
+
+    .contact_mainText {
+        font-size: 24px;
+    }
 }

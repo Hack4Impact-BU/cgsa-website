@@ -6,3 +6,57 @@
     margin-left: -0.5rem;
     width: 15%;
 }
+
+.space-booking_clubOrg, .space-booking_recurring {
+    display: none;
+}
+
+.space-booking_inlineField {
+    margin-left: -0.5rem;
+    width: 15%;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+    #inlineField {
+        width: 20%;
+    }
+
+    .space-booking_inlineField {
+        width: 20%;
+    }
+}
+
+@media (max-width: 992px) {
+    #inlineField {
+        width: 25%;
+    }
+
+    .space-booking_inlineField {
+        width: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    #inlineField {
+        width: 50%;
+        margin-left: 0;
+    }
+
+    .space-booking_inlineField {
+        width: 50%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    #inlineField {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .space-booking_inlineField {
+        width: 100%;
+        margin-left: 0;
+    }
+}
