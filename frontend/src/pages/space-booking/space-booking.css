@@ -16,7 +16,6 @@
     width: 15%;
 }
 
-/* Media Queries for responsiveness */
 @media (max-width: 1200px) {
     #inlineField {
         width: 20%;

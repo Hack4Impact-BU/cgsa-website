@@ -42,7 +42,6 @@
     height: 200px;
 }
 
-/* Media Queries for responsiveness */
 @media (max-width: 992px) {
     .about_eboardContainer {
         width: 90%;
