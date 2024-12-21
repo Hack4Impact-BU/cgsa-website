@@ -15,18 +15,16 @@ const createHtmlTemplate = (title, author, content) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Newsletter</title>
         <style>
-        @font-face {
-                font-family: WhitneyBook;
-                src: url('fonts/whitneybook.ttf');
-            }
-
-            @font-face {
-                font-family: WhitneyMedium;
-                src: url('fonts/whitneymedium.ttf');
-            }
-        
             @import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+            @font-face {
+                font-family: WhitneyBook;
+                src: url('../frontend/src/fonts/whitneybook.ttf');
+            }
+            @font-face {
+                font-family: WhitneyMedium;
+                src: url('../frontend/src/fonts/whitneymedium.ttf');
+            }
             body {
                 font-family: Lora, sans-serif;
                 margin: 0;
@@ -66,7 +64,6 @@ const createHtmlTemplate = (title, author, content) => {
             .section:last-child {
                 border-width: 0px;
             }
-            
             .newsletter {
                 text-align: left;
             }
@@ -111,9 +108,12 @@ const createHtmlTemplate = (title, author, content) => {
                 font-size: 1rem;
             }
             .title {
-                font-family: WhitneyBook;
+                font-family: WhitneyBook, sans-serif;
                 font-size: 1.4rem;
                 padding: 0px 15px 0px 15px;
+            }
+            .title b {
+                font-family: WhitneyMedium, sans-serif;
             }
             .separator {
                 background-color: rgba(222, 215, 245, 1);
@@ -121,14 +121,15 @@ const createHtmlTemplate = (title, author, content) => {
             }
         </style>
     </head>
+
     <body>
         <div class="container">
             <!-- Header -->
             <div class="header">
                 <p class="title"><b>Boston University</b> <br> Center for Gender, Sexuality, and Activism</p>
-            <div class="separator"></div>
+                <div class="separator"></div>
             </div>
-            
+
             <!-- Welcome Section -->
             <div class="content">
                 <div class="section newsletter">
@@ -139,41 +140,42 @@ const createHtmlTemplate = (title, author, content) => {
                 <!-- Other sections remain unchanged -->
             </div>
 
-                <!-- Volunteer Section -->
-                <div class="section">
-                    <h1>Help us keep the CGSA running smoothly!</h1>
-                    <p>Volunteers are super important to the CGSA, and help us make sure everything runs smoothly during the semester. We are really grateful for your help in keeping the space open so that we can provide resources to students!</p>
-                    <img src="./frontend/src/assets/volunteer.png" alt="Volunteers Needed">
-                </div>
+            <!-- Volunteer Section -->
+            <div class="section">
+                <h1>Help us keep the CGSA running smoothly!</h1>
+                <p>Volunteers are super important to the CGSA, and help us make sure everything runs smoothly during the
+                semester. We are really grateful for your help in keeping the space open so that we can provide
+                resources to students!</p>
+                <img src="../frontend/src/assets/volunteer.png" alt="Volunteers Needed" width="100%">
+            </div>
 
-                <!-- Social Media Section -->
-                <div class="section">
-                    <h1>Keeping Up with CGSA</h1>
-                    <p>Follow us on social media to stay updated with our events!</p>
-                    <div class="social-icons">
-                        <img src="./frontend/src/assets/instagram.png" alt="Instagram">
-                        <img src="./frontend/src/assets/Twitter.png" alt="Twitter">
-                    </div>
-                </div>
-
-                <!-- Executive Board Section -->
-                <div class="section executive-board">
-                    <h2>CGSA Executive Board</h2>
-                    <p>Director: Seheni Kariyawasan (she/her)</p>
-                    <p>Student Orgs Coordinator: Morgan Brennan (she/her)</p>
-                    <p>Social Media Coordinator: Jilline Foote (she/they)</p>
-                    <p>Volunteer Coordinator: Yishi Huang (she/her)</p>
-                    <p>Space Coordinator: Tania Torres (she/her)</p>
-                    <p>Treasurer: Aakash Khurana (he/him)</p>
+            <!-- Social Media Section -->
+            <div class="section">
+                <h1>Keeping Up with CGSA</h1>
+                <p>Follow us on social media to stay updated with our events!</p>
+                <div class="social-icons">
+                    <img src="../frontend/src/assets/instagram.png" alt="Instagram">
+                    <img src="../frontend/src/assets/Twitter.png" alt="Twitter">
                 </div>
             </div>
 
-            <!-- Footer -->
-            <div class="footer">
-                <p>Boston University | Center for Gender, Sexuality, and Activism</p>
-                <p>775 Commonwealth Ave, Boston, MA 02215</p>
-                <p>Contact: <a href="mailto:cgsa@bu.edu">cgsa@bu.edu</a></p>
+            <!-- Executive Board Section -->
+            <div class="section executive-board">
+                <h2>CGSA Executive Board</h2>
+                <p>Director: Seheni Kariyawasan (she/her)</p>
+                <p>Student Orgs Coordinator: Morgan Brennan (she/her)</p>
+                <p>Social Media Coordinator: Jilline Foote (she/they)</p>
+                <p>Volunteer Coordinator: Yishi Huang (she/her)</p>
+                <p>Space Coordinator: Tania Torres (she/her)</p>
+                <p>Treasurer: Aakash Khurana (he/him)</p>
             </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Boston University | Center for Gender, Sexuality, and Activism</p>
+            <p>775 Commonwealth Ave, Boston, MA 02215</p>
+            <p>Contact: <a href="mailto:cgsa@bu.edu">cgsa@bu.edu</a></p>
+        </div>
         </div>
     </body>
     </html>
