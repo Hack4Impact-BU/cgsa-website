@@ -122,8 +122,8 @@ function Admin() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     subject: title,
-                    content,
-                    author, // Include the author
+                    content: content,
+                    author: author,
                 }),
             });
 
