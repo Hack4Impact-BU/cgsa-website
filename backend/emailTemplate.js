@@ -48,7 +48,6 @@ const createHtmlTemplate = (title, author, content) => {
             .section:last-of-type {
                 border-bottom: none;
             }
-            
             .newsletter {
                 text-align: left;
             }
@@ -103,20 +102,24 @@ const createHtmlTemplate = (title, author, content) => {
                 font-size: 1.4rem;
                 padding: 0px 15px 0px 15px;
             }
+            .title b {
+                font-family: WhitneyMedium, sans-serif;
+            }
             .separator {
                 background-color: rgba(222, 215, 245, 1);
                 height: 0.3rem;
             }
         </style>
     </head>
+
     <body>
         <div class="container">
             <!-- Header -->
             <div class="header">
                 <p class="title"><b>Boston University</b> <br> Center for Gender, Sexuality, and Activism</p>
-            <div class="separator"></div>
+                <div class="separator"></div>
             </div>
-            
+
             <!-- Welcome Section -->
             
                 <div class="section newsletter">
@@ -144,24 +147,23 @@ const createHtmlTemplate = (title, author, content) => {
                     </div>
                 </div>
 
-                <!-- Executive Board Section -->
-                <div class="section executive-board">
-                    <h2>CGSA Executive Board</h2>
-                    <p>Director: Seheni Kariyawasan (she/her)</p>
-                    <p>Student Orgs Coordinator: Morgan Brennan (she/her)</p>
-                    <p>Social Media Coordinator: Jilline Foote (she/they)</p>
-                    <p>Volunteer Coordinator: Yishi Huang (she/her)</p>
-                    <p>Space Coordinator: Tania Torres (she/her)</p>
-                    <p>Treasurer: Aakash Khurana (he/him)</p>
-                </div>
+            <!-- Executive Board Section -->
+            <div class="section executive-board">
+                <h2>CGSA Executive Board</h2>
+                <p>Director: Seheni Kariyawasan (she/her)</p>
+                <p>Student Orgs Coordinator: Morgan Brennan (she/her)</p>
+                <p>Social Media Coordinator: Jilline Foote (she/they)</p>
+                <p>Volunteer Coordinator: Yishi Huang (she/her)</p>
+                <p>Space Coordinator: Tania Torres (she/her)</p>
+                <p>Treasurer: Aakash Khurana (he/him)</p>
             </div>
-
-            <!-- Footer -->
-            <div class="footer">
-                <p>Boston University | Center for Gender, Sexuality, and Activism</p>
-                <p>775 Commonwealth Ave, Boston, MA 02215</p>
-                <p>Contact: <a href="mailto:cgsa@bu.edu">cgsa@bu.edu</a></p>
-            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Boston University | Center for Gender, Sexuality, and Activism</p>
+            <p>775 Commonwealth Ave, Boston, MA 02215</p>
+            <p>Contact: <a href="mailto:cgsa@bu.edu">cgsa@bu.edu</a></p>
+        </div>
         </div>
     </body>
     </html>
