@@ -2,7 +2,7 @@ import React from 'react';
 import "./resources.css";
 import GARB from '../../assets/GARB.png'
 import WellnessRoom from '../../assets/WellnessRoom.png'
-import Placeholder from '../../assets/image_placeholder.jpg';
+import CGSA from '../../assets/cgsa.jpg';
 
 function Resources() {
     return (
@@ -49,7 +49,7 @@ function Resources() {
             <div className='resources_resourceContainer'>
                 <div className='resources_leftContainer'>
                     <h1 className='resources_heading'>Library</h1>
-                    <img src={Placeholder} />
+                    <img src={CGSA}/>
                 </div>
                 <div className='resources_rightContainer'>
                     <div className='resources_infoContainer'>
