@@ -16,7 +16,7 @@ const createHtmlTemplate = (title, author, content) => {
         <title>Newsletter</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
             body {
                 font-family: 'Lora', sans-serif;
