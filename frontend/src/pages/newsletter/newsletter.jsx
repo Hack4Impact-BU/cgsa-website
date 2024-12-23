@@ -29,7 +29,7 @@ function Newsletter() {
     <>
       <div className="form">
         <h1 className="form_header">Newsletter Sign-Up</h1>
-        <p className="form_description">Placeholder text here.</p>
+        <p className="form_description" style={{ fontSize: '1.5rem' }}>Sign up for our newsletter to stay in the loop for upcoming events!</p>
         <form onSubmit={handleSubmit}>
           <div className="form_questions">
             <div className="form_split">

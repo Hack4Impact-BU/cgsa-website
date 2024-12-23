@@ -193,6 +193,8 @@ function Admin() {
                     </div>
                     <div className="admin_formGroup">
                         <label className="form_questions">Blog Post</label>
+                        <i style={{marginTop: '5px'}}>Format your posts as a block of text and then any images you wish to add.</i>
+                        <i>The images will appear in the blog post but not in the corresponding newsletter email.</i>
                         <ReactQuill
                             value={content}
                             onChange={setContent}
