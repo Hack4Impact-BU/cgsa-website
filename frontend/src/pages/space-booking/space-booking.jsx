@@ -60,6 +60,9 @@ function SpaceBooking() {
                     We will email your booking confirmation to your primary contact. If you have any
                     questions, feel free to <a href="/contact-us">contact us</a>.
                 </p>
+                <p><i>
+                    Please submit this form 1 week in advance of your requested meeting day.
+                </i></p>
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="form_questions">
