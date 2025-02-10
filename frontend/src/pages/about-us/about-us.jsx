@@ -19,17 +19,10 @@ function AboutUs() {
                 <h1 className="about_title">E-Board</h1>
                 <div className="about_eboardPicturesWrapper">
                     <div className="about_eboardPictureContainer">
-                        <img src={Seheni} className="about_eboardPicture" />
+                        <img src={Yihsi} className="about_eboardPicture" />
                         <div className="about_description">
-                            <p>Seheni Kariyawasan (she/her)</p>
-                            <p><i>Director</i></p>
-                        </div>
-                    </div>
-                    <div className="about_eboardPictureContainer">
-                        <img src={Morgan} className="about_eboardPicture" />
-                        <div className="about_description">
-                            <p>Morgan Brennan (she/her)</p>
-                            <p><i>Student Orgs Coordinator</i></p>
+                            <p>Yihsi Huang (she/her)</p>
+                            <p><i>Director & Volunteer Coordinator</i></p>
                         </div>
                     </div>
                     <div className="about_eboardPictureContainer">
@@ -37,13 +30,6 @@ function AboutUs() {
                         <div className="about_description">
                             <p>Jiline Foote (she/they)</p>
                             <p><i>Social Media Coordinator</i></p>
-                        </div>
-                    </div>
-                    <div className="about_eboardPictureContainer">
-                        <img src={Yihsi} className="about_eboardPicture" />
-                        <div className="about_description">
-                            <p>Yihsi Huang (she/her)</p>
-                            <p><i>Volunteer Coordinator</i></p>
                         </div>
                     </div>
                     <div className="about_eboardPictureContainer">
