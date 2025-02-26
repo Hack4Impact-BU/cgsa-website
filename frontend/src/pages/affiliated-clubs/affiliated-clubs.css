@@ -19,4 +19,5 @@
 
 .clubs_item a {
     text-decoration: none;
+    transition: color 0.25s;
 }

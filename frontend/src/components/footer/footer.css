@@ -7,6 +7,7 @@
     font-size: 42px;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.25s;
 }
 
 #socials {
