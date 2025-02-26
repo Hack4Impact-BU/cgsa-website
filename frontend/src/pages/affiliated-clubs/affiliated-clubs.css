@@ -1,0 +1,22 @@
+.clubs_title {
+    font-family: 'Libre Bodoni';
+    font-size: 48px;
+    color: rgba(115, 82, 212, 0.8);
+    text-align: center;
+    margin-bottom: -1.2rem;
+}
+
+.clubs_item {
+    margin-block: 3rem;
+    font-size: 32px;
+    text-align: center;
+    list-style-position: inside;
+}
+
+.clubs_item h5 {
+    margin-top: -1.8rem;
+}
+
+.clubs_item a {
+    text-decoration: none;
+}

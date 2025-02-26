@@ -12,8 +12,7 @@ function Footer() {
         <>
             <div id="footer">
                 <div id="socials">
-                    <a href="https://www.instagram.com/bucgsa" target="_blank"><img src={Instagram} /></a>
-                    <a href="https://x.com/bucgsa" target="_blank"><img src={Twitter} /></a>
+                    <a href="https://www.instagram.com/bucgsa" target="_blank" id="tag"><i>@bucgsa</i></a>
                 </div>
                 <img src={BUPlate} id="plate" />
                 <p id='title'><b>Boston University</b> Center for Gender, Sexuality, and Activism</p>

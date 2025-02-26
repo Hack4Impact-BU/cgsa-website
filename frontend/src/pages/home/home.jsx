@@ -85,7 +85,7 @@ function Home() {
                     events.map((item, index) => (
                         <div key={index} className='home_event'>
                             <h2>{item != 'null' ? item.summary : 'More Events Soon!'}</h2>
-                            <p>{item != 'null' ? DateTime.fromISO(item.start.dateTime).toFormat('MM/dd/yyyy h:mm a') : 'Look out for more announcements about future events!'}</p>
+                            <p>{item != 'null' ? DateTime.fromISO(item.start.dateTime).toFormat("EEEE's'' ''a''t' h:mm a") : 'Look out for more announcements about future events!'}</p>
                         </div>
                     ))
                 }

@@ -13,6 +13,7 @@ import Newsletter from './pages/newsletter/newsletter';
 import SpaceBooking from './pages/space-booking/space-booking';
 import Volunteer from './pages/volunteer/volunteer'
 import Admin from './pages/admin/admin';
+import AffiliatedClubs from './pages/affiliated-clubs/affiliated-clubs';
 import './App.css'
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/space-booking" element={<SpaceBooking />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/affiliated-clubs" element={<AffiliatedClubs />} />
         <Route path="*" element={<ErrorBoundary />} />
       </Routes>
       <Footer />
